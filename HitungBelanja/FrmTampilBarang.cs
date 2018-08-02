@@ -84,7 +84,35 @@ namespace HitungBelanja
                     this.txtNama.Text = brg.Nama;
                     this.txtHarga.Text = brg.Harga.ToString();
                 }
+                else
+                {
+
+                }
             }
+        }
+
+        private void txtAngka_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsDigit(e.KeyChar) && e.KeyChar != (char)Keys.Back)
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void btnOrder_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (this.txtKode.Text.Equals("")) throw new Exception("Kode tidak boleh kosong...");
+                else if (this.txtJumlah.Text.Equals("")) throw new Exception("Jumlah tidak boleh kosong...");
+                else if (this.txtDiscount.Text.Equals("")) throw new Exception("Diskon tidak boleh kosong...");
+                else if (this.txtPajak.Text.Equals("")) throw new Exception("Pajak tidak boleh kosong...");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, this.Text, MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+
         }
     }
 }
