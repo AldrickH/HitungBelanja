@@ -215,6 +215,7 @@
             this.dgvDataOrder.RowTemplate.Height = 33;
             this.dgvDataOrder.Size = new System.Drawing.Size(1150, 306);
             this.dgvDataOrder.TabIndex = 16;
+            this.dgvDataOrder.Resize += new System.EventHandler(this.dgvDataOrder_Resize);
             // 
             // clmKode
             // 
@@ -452,8 +453,11 @@
             this.dgvDataBarang.Margin = new System.Windows.Forms.Padding(2);
             this.dgvDataBarang.Name = "dgvDataBarang";
             this.dgvDataBarang.RowTemplate.Height = 33;
+            this.dgvDataBarang.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvDataBarang.Size = new System.Drawing.Size(1123, 509);
             this.dgvDataBarang.TabIndex = 17;
+            this.dgvDataBarang.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvDataBarang_CellDoubleClick);
+            this.dgvDataBarang.Resize += new System.EventHandler(this.dgvDataBarang_Resize);
             // 
             // dataGridViewTextBoxColumn1
             // 
