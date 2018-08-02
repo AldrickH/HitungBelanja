@@ -13,6 +13,8 @@ namespace HitungBelanja
 {
     public partial class FrmTampilBarang : Form
     {
+        Barang brg = null;
+
         string sqlString = @"Data Source = (localdb)\MSSQLLocalDB; Initial Catalog = HitungBelanja; Integrated Security = True;";
 
         public FrmTampilBarang()
@@ -25,6 +27,7 @@ namespace HitungBelanja
         {
             FrmTambahBarang frm = new FrmTambahBarang();
             frm.ShowDialog();
+            this.FrmTampilBarang_Load(null, null);
         }
 
         private void FrmTampilBarang_Load(object sender, EventArgs e)
@@ -39,6 +42,18 @@ namespace HitungBelanja
                     this.dgvDataBarang.Columns[1].DataPropertyName = "nama";
                     this.dgvDataBarang.Columns[2].DataPropertyName = "harga";
                     this.dgvDataBarang.Columns[3].DataPropertyName = "jumlah";
+                }
+            }
+        }
+
+        private void txtKode_Leave(object sender, EventArgs e)
+        {
+            using (var dao = new BarangDAO(sqlString))
+            { 
+                if ((brg = dao.GetDataBarangByKode(this.txtKode.Text)) != null )
+                {
+                    this.txtNama.Text = brg.Nama;
+                    this.txtHarga.Text = brg.Harga.ToString();
                 }
             }
         }
