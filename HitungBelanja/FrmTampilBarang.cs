@@ -22,5 +22,10 @@ namespace HitungBelanja
             FrmTambahBarang frm = new FrmTambahBarang();
             frm.ShowDialog();
         }
+
+        private void dgvDataOrder_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
     }
 }
