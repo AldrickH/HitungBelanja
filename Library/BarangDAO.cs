@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Library
 {
-    class BarangDAO : IDisposable
+    public class BarangDAO : IDisposable
     {
         SqlConnection _conn = null;
         SqlTransaction _trans = null;
@@ -122,7 +122,7 @@ namespace Library
 
         public void Dispose()
         {
-            throw new NotImplementedException();
+            if (_conn != null) _conn.Close();
         }
     }
 }

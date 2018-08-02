@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Library
 {
-    class Barang
+    public class Barang
     {
         public string Kode { get; set; }
         public string Nama { get; set; }

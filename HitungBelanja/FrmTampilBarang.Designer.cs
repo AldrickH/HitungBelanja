@@ -85,7 +85,8 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.tabData.Controls.Add(this.tabPage1);
             this.tabData.Controls.Add(this.tabPage2);
-            this.tabData.Location = new System.Drawing.Point(12, 86);
+            this.tabData.Location = new System.Drawing.Point(8, 55);
+            this.tabData.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.tabData.Name = "tabData";
             this.tabData.SelectedIndex = 0;
             this.tabData.Size = new System.Drawing.Size(1252, 1012);
@@ -109,7 +110,8 @@
             this.tabPage1.Controls.Add(this.txtJumlah);
             this.tabPage1.Controls.Add(this.lblJumlah);
             this.tabPage1.Controls.Add(this.lblHarga);
-            this.tabPage1.Location = new System.Drawing.Point(8, 39);
+            this.tabPage1.Location = new System.Drawing.Point(4, 25);
+            this.tabPage1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
             this.tabPage1.Size = new System.Drawing.Size(1236, 965);
@@ -122,7 +124,7 @@
             this.btnOrder.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnOrder.Location = new System.Drawing.Point(887, 136);
             this.btnOrder.Name = "btnOrder";
-            this.btnOrder.Size = new System.Drawing.Size(154, 46);
+            this.btnOrder.Size = new System.Drawing.Size(103, 29);
             this.btnOrder.TabIndex = 17;
             this.btnOrder.Text = "Order";
             this.btnOrder.UseVisualStyleBackColor = true;
@@ -200,7 +202,7 @@
             this.lblKode.AutoSize = true;
             this.lblKode.Location = new System.Drawing.Point(39, 23);
             this.lblKode.Name = "lblKode";
-            this.lblKode.Size = new System.Drawing.Size(62, 25);
+            this.lblKode.Size = new System.Drawing.Size(41, 17);
             this.lblKode.TabIndex = 8;
             this.lblKode.Text = "Kode";
             // 
@@ -209,7 +211,7 @@
             this.lblNama.AutoSize = true;
             this.lblNama.Location = new System.Drawing.Point(39, 79);
             this.lblNama.Name = "lblNama";
-            this.lblNama.Size = new System.Drawing.Size(68, 25);
+            this.lblNama.Size = new System.Drawing.Size(45, 17);
             this.lblNama.TabIndex = 9;
             this.lblNama.Text = "Nama";
             // 
@@ -227,7 +229,7 @@
             this.lblJumlah.AutoSize = true;
             this.lblJumlah.Location = new System.Drawing.Point(39, 136);
             this.lblJumlah.Name = "lblJumlah";
-            this.lblJumlah.Size = new System.Drawing.Size(81, 25);
+            this.lblJumlah.Size = new System.Drawing.Size(53, 17);
             this.lblJumlah.TabIndex = 10;
             this.lblJumlah.Text = "Jumlah";
             // 
@@ -236,7 +238,7 @@
             this.lblHarga.AutoSize = true;
             this.lblHarga.Location = new System.Drawing.Point(39, 193);
             this.lblHarga.Name = "lblHarga";
-            this.lblHarga.Size = new System.Drawing.Size(70, 25);
+            this.lblHarga.Size = new System.Drawing.Size(47, 17);
             this.lblHarga.TabIndex = 11;
             this.lblHarga.Text = "Harga";
             // 
@@ -303,7 +305,7 @@
             this.lblNamaAdmin.AutoSize = true;
             this.lblNamaAdmin.Location = new System.Drawing.Point(1010, 47);
             this.lblNamaAdmin.Name = "lblNamaAdmin";
-            this.lblNamaAdmin.Size = new System.Drawing.Size(68, 25);
+            this.lblNamaAdmin.Size = new System.Drawing.Size(45, 17);
             this.lblNamaAdmin.TabIndex = 1;
             this.lblNamaAdmin.Text = "Nama";
             // 
@@ -482,7 +484,7 @@
             // 
             // FrmTampilBarang
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1276, 1110);
             this.Controls.Add(this.btnTambah);
@@ -490,12 +492,14 @@
             this.Controls.Add(this.lblNamaAdmin);
             this.Controls.Add(this.tabData);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "FrmTampilBarang";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Form Tampil Barang";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
+            this.Load += new System.EventHandler(this.FrmTampilBarang_Load);
             this.tabData.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
             this.tabPage1.PerformLayout();
