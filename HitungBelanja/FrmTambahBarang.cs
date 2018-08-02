@@ -13,7 +13,7 @@ namespace HitungBelanja
 {
     public partial class FrmTambahBarang : Form
     {
-        string sqlString = @"Data Source = (localdb)\MSSQLLocalDB; Initial Catalog = SimpleECommerce; Integrated Security = True;";
+        string sqlString = @"Data Source = (localdb)\MSSQLLocalDB; Initial Catalog = HitungBelanja; Integrated Security = True;";
 
         public FrmTambahBarang()
         {
@@ -33,8 +33,9 @@ namespace HitungBelanja
             if (!char.IsLetterOrDigit(e.KeyChar) && e.KeyChar != (char)Keys.Back && !char.IsWhiteSpace(e.KeyChar))
             {
                 e.Handled = true;
-         }
-         
+            }
+        }
+
         private void btnSimpan_Click(object sender, EventArgs e)
         {
             if (this.txtKodeBarang.Text.Trim() == "")
@@ -69,7 +70,7 @@ namespace HitungBelanja
                             Nama = this.txtNamaBarang.Text.Trim(),
                             Jumlah = int.Parse(txtJumlahBarang.Text.Trim()),
                             Harga = Convert.ToDecimal(txtHargaBarang.Text.Trim())
-                        }); 
+                        });
                     }
                     this.Close();
                 }
@@ -81,3 +82,5 @@ namespace HitungBelanja
         }
     }
 }
+    
+

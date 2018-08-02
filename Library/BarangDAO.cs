@@ -122,7 +122,7 @@ namespace Library
 
         public void Dispose()
         {
-            throw new NotImplementedException();
+            if (_conn != null) _conn.Close();
         }
     }
 }
