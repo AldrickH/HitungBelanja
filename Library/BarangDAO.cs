@@ -52,6 +52,54 @@ namespace Library
             }
         }
 
+        public void UpdateBarang(Barang barang)
+        {
+            try
+            {
+                _trans = _conn.BeginTransaction();
+                using (SqlCommand cmd = new SqlCommand())
+                {
+                    cmd.Connection = _conn;
+                    cmd.Transaction = _trans;
+                    cmd.CommandText = @"update barang set nama = @nama, jumlah = @jumlah , harga = @harga where kode = @kode";
+                    cmd.Parameters.Clear();
+                    cmd.Parameters.AddWithValue("@kode", barang.Kode);
+                    cmd.Parameters.AddWithValue("@nama", barang.Nama);
+                    cmd.Parameters.AddWithValue("@jumlah", barang.Jumlah);
+                    cmd.Parameters.AddWithValue("@harga", barang.Harga);
+                    cmd.ExecuteNonQuery();
+                }
+                _trans.Commit();
+            }
+            catch (Exception ex)
+            {
+                if (_trans != null) _trans.Rollback();
+                throw ex;
+            }
+            finally
+            {
+                if (_trans != null) _trans.Dispose();
+            }
+        }
+
+        public void DeleteBarang(string kode)
+        {
+            try
+            {
+                using (SqlCommand cmd = new SqlCommand(@"delete barang where kode = @kode", _conn))
+                {
+                    cmd.Parameters.Clear();
+                    cmd.Parameters.AddWithValue("@kode", kode);
+                    cmd.ExecuteNonQuery();
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+
         public List<Barang> GetAllDataBarang()
         {
             List<Barang> listData = null;

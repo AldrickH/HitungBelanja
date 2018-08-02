@@ -199,6 +199,7 @@
             this.dgvDataOrder.RowTemplate.Height = 33;
             this.dgvDataOrder.Size = new System.Drawing.Size(1404, 385);
             this.dgvDataOrder.TabIndex = 16;
+            this.dgvDataOrder.Resize += new System.EventHandler(this.dgvDataOrder_Resize);
             // 
             // clmKode
             // 
@@ -442,8 +443,11 @@
             this.dgvDataBarang.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.dgvDataBarang.Name = "dgvDataBarang";
             this.dgvDataBarang.RowTemplate.Height = 33;
+            this.dgvDataBarang.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvDataBarang.Size = new System.Drawing.Size(1494, 539);
             this.dgvDataBarang.TabIndex = 17;
+            this.dgvDataBarang.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvDataBarang_CellDoubleClick);
+            this.dgvDataBarang.Resize += new System.EventHandler(this.dgvDataBarang_Resize);
             // 
             // dataGridViewTextBoxColumn1
             // 
@@ -490,7 +494,7 @@
             // btnTambah
             // 
             this.btnTambah.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnTambah.Location = new System.Drawing.Point(894, 53);
+            this.btnTambah.Location = new System.Drawing.Point(881, 53);
             this.btnTambah.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnTambah.Name = "btnTambah";
             this.btnTambah.Size = new System.Drawing.Size(318, 45);

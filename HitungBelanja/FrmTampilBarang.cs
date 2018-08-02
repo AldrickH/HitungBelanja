@@ -37,11 +37,41 @@ namespace HitungBelanja
                     this.dgvDataBarang.DataSource = dao.GetAllDataBarang();
                     this.dgvDataBarang.Columns[0].DataPropertyName = "kode";
                     this.dgvDataBarang.Columns[1].DataPropertyName = "nama";
-                    this.dgvDataBarang.Columns[2].DataPropertyName = "harga";
-                    this.dgvDataBarang.Columns[3].DataPropertyName = "jumlah";
+                    this.dgvDataBarang.Columns[2].DataPropertyName = "jumlah";
+                    this.dgvDataBarang.Columns[3].DataPropertyName = "harga";
                 }
             }
         }
+
+        private void dgvDataBarang_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (this.dgvDataBarang.SelectedRows.Count > 0)
+            {
+                FrmTambahBarang frm = new FrmTambahBarang();
+                frm.Run(new BarangDAO(sqlString).GetDataBarangByKode(this.dgvDataBarang.CurrentRow.Cells[0].Value.ToString()));
+            }
+            FrmTampilBarang_Load(null, null);
+        }
+
+        private void dgvDataBarang_Resize(object sender, EventArgs e)
+        {
+            this.dgvDataBarang.Columns[0].Width = 25 * this.dgvDataBarang.Width / 100;
+            this.dgvDataBarang.Columns[1].Width = 25 * this.dgvDataBarang.Width / 100;
+            this.dgvDataBarang.Columns[2].Width = 25 * this.dgvDataBarang.Width / 100;
+            this.dgvDataBarang.Columns[3].Width = 25 * this.dgvDataBarang.Width / 100;
+        }
+
+        private void dgvDataOrder_Resize(object sender, EventArgs e)
+        {
+            this.dgvDataOrder.Columns[0].Width = 10 * this.dgvDataOrder.Width / 100;
+            this.dgvDataOrder.Columns[1].Width = 18 * this.dgvDataOrder.Width / 100;
+            this.dgvDataOrder.Columns[2].Width = 10 * this.dgvDataOrder.Width / 100;
+            this.dgvDataOrder.Columns[3].Width = 20 * this.dgvDataOrder.Width / 100;
+            this.dgvDataOrder.Columns[4].Width = 10 * this.dgvDataOrder.Width / 100;
+            this.dgvDataOrder.Columns[5].Width = 10 * this.dgvDataOrder.Width / 100;
+            this.dgvDataOrder.Columns[6].Width = 19 * this.dgvDataOrder.Width / 100;
+        }
     }
 }
+
 

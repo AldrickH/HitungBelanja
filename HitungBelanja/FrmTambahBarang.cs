@@ -14,13 +14,20 @@ namespace HitungBelanja
     public partial class FrmTambahBarang : Form
     {
         string sqlString = @"Data Source = (localdb)\MSSQLLocalDB; Initial Catalog = HitungBelanja; Integrated Security = True;";
+        Barang brg = null;
 
         public FrmTambahBarang()
         {
             InitializeComponent();
         }
 
-        private void textBox1_KeyPress(object sender, KeyPressEventArgs e)
+        public void Run(Barang temp = null)
+        {
+            brg = temp;
+            this.ShowDialog();
+        }
+
+        private void textAngka_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (!char.IsNumber(e.KeyChar) && e.KeyChar != (char)Keys.Back)
             {
@@ -28,7 +35,7 @@ namespace HitungBelanja
             }
         }
 
-        private void textBox2_KeyPress(object sender, KeyPressEventArgs e)
+        private void textAngkaHuruf_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (!char.IsLetterOrDigit(e.KeyChar) && e.KeyChar != (char)Keys.Back && !char.IsWhiteSpace(e.KeyChar))
             {
@@ -63,14 +70,20 @@ namespace HitungBelanja
                 try
                 {
                     using (var dao = new BarangDAO(sqlString))
-                    {
-                        dao.AddBarang(new Barang
+                    { 
+
+                        Barang barang = new Barang
                         {
                             Kode = this.txtKodeBarang.Text.Trim(),
                             Nama = this.txtNamaBarang.Text.Trim(),
-                            Jumlah = int.Parse(txtJumlahBarang.Text.Trim()),
-                            Harga = Convert.ToDecimal(txtHargaBarang.Text.Trim())
-                        });
+                            Jumlah = int.Parse(this.txtJumlahBarang.Text.Trim()),
+                            Harga = Convert.ToDecimal(this.txtHargaBarang.Text.Trim())
+                        };
+
+                        if (brg != null)
+                            dao.UpdateBarang(barang);
+                        else
+                            dao.AddBarang(barang);
                     }
                     this.Close();
                 }
@@ -79,6 +92,28 @@ namespace HitungBelanja
                     MessageBox.Show(ex.Message, this.Text, MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
             }
+        }
+
+        private void FrmTambahBarang_Load(object sender, EventArgs e)
+        {
+            if (brg != null)
+            {
+                this.txtKodeBarang.Text = brg.Kode;
+                this.txtKodeBarang.Enabled = false;
+                this.txtNamaBarang.Text = brg.Nama;
+                this.txtJumlahBarang.Text = Convert.ToInt32(brg.Jumlah).ToString();
+                this.txtHargaBarang.Text = Convert.ToDecimal(brg.Harga).ToString();
+            }
+        }
+
+        private void btnHapus_Click(object sender, EventArgs e)
+        {
+            using (var dao = new BarangDAO(sqlString))
+            {
+                dao.DeleteBarang(brg.Kode);
+            }
+            MessageBox.Show("Barang sudah terhapus", this.Text, MessageBoxButtons.OK, MessageBoxIcon.Information);
+            this.Close();
         }
     }
 }
