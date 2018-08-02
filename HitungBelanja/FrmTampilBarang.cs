@@ -13,18 +13,21 @@ namespace HitungBelanja
 {
     public partial class FrmTampilBarang : Form
     {
+        Barang brg = null;
+
         string sqlString = @"Data Source = (localdb)\MSSQLLocalDB; Initial Catalog = HitungBelanja; Integrated Security = True;";
 
         public FrmTampilBarang()
         {
             InitializeComponent();
-            this.dataGridView1.AutoGenerateColumns = false;
+            this.dgvDataBarang.AutoGenerateColumns = false;
         }
 
         private void btnTambah_Click(object sender, EventArgs e)
         {
             FrmTambahBarang frm = new FrmTambahBarang();
             frm.ShowDialog();
+            this.FrmTampilBarang_Load(null, null);
         }
 
         private void FrmTampilBarang_Load(object sender, EventArgs e)
@@ -33,12 +36,24 @@ namespace HitungBelanja
             {
                 if (dao.GetAllDataBarang().Capacity > 0)
                 {
-                    this.dataGridView1.DataSource = null;
-                    this.dataGridView1.DataSource = dao.GetAllDataBarang();
-                    this.dataGridView1.Columns[0].DataPropertyName = "kode";
-                    this.dataGridView1.Columns[1].DataPropertyName = "nama";
-                    this.dataGridView1.Columns[2].DataPropertyName = "harga";
-                    this.dataGridView1.Columns[3].DataPropertyName = "jumlah";
+                    this.dgvDataBarang.DataSource = null;
+                    this.dgvDataBarang.DataSource = dao.GetAllDataBarang();
+                    this.dgvDataBarang.Columns[0].DataPropertyName = "kode";
+                    this.dgvDataBarang.Columns[1].DataPropertyName = "nama";
+                    this.dgvDataBarang.Columns[2].DataPropertyName = "harga";
+                    this.dgvDataBarang.Columns[3].DataPropertyName = "jumlah";
+                }
+            }
+        }
+
+        private void txtKode_Leave(object sender, EventArgs e)
+        {
+            using (var dao = new BarangDAO(sqlString))
+            { 
+                if ((brg = dao.GetDataBarangByKode(this.txtKode.Text)) != null )
+                {
+                    this.txtNama.Text = brg.Nama;
+                    this.txtHarga.Text = brg.Harga.ToString();
                 }
             }
         }
