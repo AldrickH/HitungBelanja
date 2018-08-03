@@ -89,7 +89,9 @@ namespace HitungBelanja
                 }
                 else
                 {
-
+                    this.txtKode.Text = "";
+                    this.txtKode.Focus();
+                    this.label3.Visible = true;
                 }
             }
         }
