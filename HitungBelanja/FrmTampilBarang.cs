@@ -70,12 +70,11 @@ namespace HitungBelanja
         private void dgvDataOrder_Resize(object sender, EventArgs e)
         {
             this.dgvDataOrder.Columns[0].Width = 10 * this.dgvDataOrder.Width / 100;
-            this.dgvDataOrder.Columns[1].Width = 18 * this.dgvDataOrder.Width / 100;
+            this.dgvDataOrder.Columns[1].Width = 25 * this.dgvDataOrder.Width / 100;
             this.dgvDataOrder.Columns[2].Width = 10 * this.dgvDataOrder.Width / 100;
             this.dgvDataOrder.Columns[3].Width = 20 * this.dgvDataOrder.Width / 100;
-            this.dgvDataOrder.Columns[4].Width = 10 * this.dgvDataOrder.Width / 100;
-            this.dgvDataOrder.Columns[5].Width = 10 * this.dgvDataOrder.Width / 100;
-            this.dgvDataOrder.Columns[6].Width = 19 * this.dgvDataOrder.Width / 100;
+            this.dgvDataOrder.Columns[4].Width = 20 * this.dgvDataOrder.Width / 100;
+            this.dgvDataOrder.Columns[5].Width = 14 * this.dgvDataOrder.Width / 100;
         }
 
         private void txtKode_Leave(object sender, EventArgs e)
@@ -90,6 +89,10 @@ namespace HitungBelanja
                 else
                 {
                     this.txtKode.Text = "";
+                    this.txtHarga.Text = "";
+                    this.txtJumlah.Text = "";
+                    this.txtNama.Text = "";
+                    this.txtPajak.Text = "";
                     this.txtKode.Focus();
                     this.label3.Visible = true;
                 }
@@ -110,22 +113,19 @@ namespace HitungBelanja
             {
                 if (this.txtKode.Text.Equals("")) throw new Exception("Kode tidak boleh kosong...");
                 else if (this.txtJumlah.Text.Equals("")) throw new Exception("Jumlah tidak boleh kosong...");
-                else if (this.txtDiscount.Text.Equals("")) throw new Exception("Diskon tidak boleh kosong...");
                 else if (this.txtPajak.Text.Equals("")) throw new Exception("Pajak tidak boleh kosong...");
                 else
                 {
-                    decimal diskon = int.Parse(this.txtJumlah.Text) * (Convert.ToDecimal(this.txtHarga.Text) * (Convert.ToDecimal(this.txtDiscount.Text) / 100));
                     decimal pajak = int.Parse(this.txtJumlah.Text) * (Convert.ToDecimal(this.txtHarga.Text) * (Convert.ToDecimal(this.txtPajak.Text) / 100));
 
 
-                    decimal subTotal = (int.Parse(this.txtJumlah.Text.ToString()) * Convert.ToDecimal(this.txtHarga.Text.ToString())) -
-                                        diskon + pajak;
+                    decimal subTotal = (int.Parse(this.txtJumlah.Text.ToString()) * Convert.ToDecimal(this.txtHarga.Text.ToString())) + pajak;
 
                     this.dgvDataOrder.DataSource = null;
                     this.dgvDataOrder.Rows.Add(new string[]
                     {
                         this.txtKode.Text.ToString(), this.txtNama.Text.ToString(), this.txtJumlah.Text.ToString(),
-                        this.txtHarga.Text.ToString(), diskon.ToString(), pajak.ToString(), subTotal.ToString()
+                        this.txtHarga.Text.ToString(), pajak.ToString(), subTotal.ToString()
                     });
 
                     temp += subTotal;
@@ -137,23 +137,6 @@ namespace HitungBelanja
                 MessageBox.Show(ex.Message, this.Text, MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
 
-        }
-
-        private void txtDiscount_TextChanged(object sender, EventArgs e)
-        {   
-            if (this.txtDiscount.Text != "" )
-            {
-                decimal disc = Convert.ToDecimal(this.txtDiscount.Text);
-                if (disc > 100)
-                {
-                    this.txtDiscount.Text = "100";
-                }
-                else
-                {
-                    this.txtDiscount.Text = disc.ToString();
-                }
-                this.txtDiscount.SelectionStart = this.txtDiscount.Text.Length;
-            }
         }
 
         private void txtPajak_TextChanged(object sender, EventArgs e)
