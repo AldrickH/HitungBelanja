@@ -40,6 +40,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Akun.cs" />
+    <Compile Include="AkunDAO.cs" />
     <Compile Include="Barang.cs" />
     <Compile Include="BarangDAO.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

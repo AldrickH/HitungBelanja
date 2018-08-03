@@ -104,6 +104,14 @@ namespace HitungBelanja
                 this.txtJumlahBarang.Text = Convert.ToInt32(brg.Jumlah).ToString();
                 this.txtHargaBarang.Text = Convert.ToDecimal(brg.Harga).ToString();
             }
+            else
+            {
+                var dao = new BarangDAO(sqlString);
+                this.txtKodeBarang.Text = dao.GetKodeBarangBerikutnya();
+                this.txtKodeBarang.Enabled = false;
+                this.btnHapus.Visible = false;
+
+            }
         }
 
         private void btnHapus_Click(object sender, EventArgs e)

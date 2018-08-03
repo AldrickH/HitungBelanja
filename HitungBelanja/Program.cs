@@ -16,7 +16,7 @@ namespace HitungBelanja
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new FrmTampilBarang());
+            Application.Run(new FrmLogIn());
         }
     }
 }
