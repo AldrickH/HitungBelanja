@@ -28,23 +28,22 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
             this.tabData = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.label3 = new System.Windows.Forms.Label();
             this.btnBayar = new System.Windows.Forms.Button();
             this.lblTotal = new System.Windows.Forms.Label();
             this.txtPajak = new System.Windows.Forms.TextBox();
-            this.txtDiscount = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
             this.btnOrder = new System.Windows.Forms.Button();
             this.dgvDataOrder = new System.Windows.Forms.DataGridView();
-            this.clmKode = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.clmNama = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.clmJumlah = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.clmHarga = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.clmDiscount = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.clmPajak = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.clmSubTotal = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.txtKode = new System.Windows.Forms.TextBox();
             this.txtNama = new System.Windows.Forms.TextBox();
             this.txtHarga = new System.Windows.Forms.TextBox();
@@ -71,7 +70,12 @@
             this.lblNamaAdmin = new System.Windows.Forms.Label();
             this.lblNamaAdminIsi = new System.Windows.Forms.Label();
             this.btnTambah = new System.Windows.Forms.Button();
-            this.label3 = new System.Windows.Forms.Label();
+            this.clmKode = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clmNama = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clmJumlah = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clmHarga = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clmPajak = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clmSubTotal = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tabData.SuspendLayout();
             this.tabPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDataOrder)).BeginInit();
@@ -86,11 +90,12 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.tabData.Controls.Add(this.tabPage1);
             this.tabData.Controls.Add(this.tabPage2);
-            this.tabData.Location = new System.Drawing.Point(8, 84);
-            this.tabData.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tabData.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tabData.Location = new System.Drawing.Point(5, 54);
+            this.tabData.Margin = new System.Windows.Forms.Padding(1);
             this.tabData.Name = "tabData";
             this.tabData.SelectedIndex = 0;
-            this.tabData.Size = new System.Drawing.Size(1752, 955);
+            this.tabData.Size = new System.Drawing.Size(1198, 504);
             this.tabData.TabIndex = 0;
             // 
             // tabPage1
@@ -99,9 +104,7 @@
             this.tabPage1.Controls.Add(this.btnBayar);
             this.tabPage1.Controls.Add(this.lblTotal);
             this.tabPage1.Controls.Add(this.txtPajak);
-            this.tabPage1.Controls.Add(this.txtDiscount);
             this.tabPage1.Controls.Add(this.label1);
-            this.tabPage1.Controls.Add(this.label2);
             this.tabPage1.Controls.Add(this.btnOrder);
             this.tabPage1.Controls.Add(this.dgvDataOrder);
             this.tabPage1.Controls.Add(this.txtKode);
@@ -112,21 +115,34 @@
             this.tabPage1.Controls.Add(this.txtJumlah);
             this.tabPage1.Controls.Add(this.lblJumlah);
             this.tabPage1.Controls.Add(this.lblHarga);
-            this.tabPage1.Location = new System.Drawing.Point(8, 39);
-            this.tabPage1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tabPage1.Location = new System.Drawing.Point(4, 40);
+            this.tabPage1.Margin = new System.Windows.Forms.Padding(1);
             this.tabPage1.Name = "tabPage1";
-            this.tabPage1.Padding = new System.Windows.Forms.Padding(3, 3, 3, 3);
-            this.tabPage1.Size = new System.Drawing.Size(1736, 908);
+            this.tabPage1.Padding = new System.Windows.Forms.Padding(2);
+            this.tabPage1.Size = new System.Drawing.Size(1190, 460);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Daftar Pesan";
             this.tabPage1.UseVisualStyleBackColor = true;
             // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.ForeColor = System.Drawing.Color.Red;
+            this.label3.Location = new System.Drawing.Point(156, 46);
+            this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(377, 32);
+            this.label3.TabIndex = 32;
+            this.label3.Text = "Kode barang tidak terdefinisi";
+            this.label3.Visible = false;
+            // 
             // btnBayar
             // 
             this.btnBayar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnBayar.Location = new System.Drawing.Point(1398, 783);
+            this.btnBayar.Location = new System.Drawing.Point(962, 377);
+            this.btnBayar.Margin = new System.Windows.Forms.Padding(2);
             this.btnBayar.Name = "btnBayar";
-            this.btnBayar.Size = new System.Drawing.Size(326, 103);
+            this.btnBayar.Size = new System.Drawing.Size(217, 66);
             this.btnBayar.TabIndex = 31;
             this.btnBayar.Text = "Bayar";
             this.btnBayar.UseVisualStyleBackColor = true;
@@ -134,62 +150,44 @@
             // lblTotal
             // 
             this.lblTotal.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.lblTotal.AutoSize = true;
-            this.lblTotal.Location = new System.Drawing.Point(1594, 241);
+            this.lblTotal.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTotal.Location = new System.Drawing.Point(1017, 2);
+            this.lblTotal.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblTotal.Name = "lblTotal";
-            this.lblTotal.Size = new System.Drawing.Size(79, 25);
+            this.lblTotal.Size = new System.Drawing.Size(162, 45);
             this.lblTotal.TabIndex = 30;
             this.lblTotal.Text = "{ total }";
+            this.lblTotal.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // txtPajak
             // 
-            this.txtPajak.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtPajak.Location = new System.Drawing.Point(1178, 91);
+            this.txtPajak.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtPajak.Location = new System.Drawing.Point(162, 303);
+            this.txtPajak.Margin = new System.Windows.Forms.Padding(2);
             this.txtPajak.MaxLength = 5;
+            this.txtPajak.Multiline = true;
             this.txtPajak.Name = "txtPajak";
-            this.txtPajak.Size = new System.Drawing.Size(343, 31);
+            this.txtPajak.Size = new System.Drawing.Size(281, 41);
             this.txtPajak.TabIndex = 29;
             this.txtPajak.TextChanged += new System.EventHandler(this.txtPajak_TextChanged);
             this.txtPajak.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtAngka_KeyPress);
             // 
-            // txtDiscount
-            // 
-            this.txtDiscount.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtDiscount.Location = new System.Drawing.Point(1178, 31);
-            this.txtDiscount.MaxLength = 5;
-            this.txtDiscount.Name = "txtDiscount";
-            this.txtDiscount.Size = new System.Drawing.Size(343, 31);
-            this.txtDiscount.TabIndex = 28;
-            this.txtDiscount.TextChanged += new System.EventHandler(this.txtDiscount_TextChanged);
-            this.txtDiscount.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtAngka_KeyPress);
-            // 
             // label1
             // 
-            this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(1038, 95);
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 19.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(27, 303);
+            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(66, 25);
+            this.label1.Size = new System.Drawing.Size(99, 38);
             this.label1.TabIndex = 27;
             this.label1.Text = "Pajak";
             // 
-            // label2
-            // 
-            this.label2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(1038, 44);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(96, 25);
-            this.label2.TabIndex = 26;
-            this.label2.Text = "Discount";
-            // 
             // btnOrder
             // 
-            this.btnOrder.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnOrder.Location = new System.Drawing.Point(1554, 77);
-            this.btnOrder.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.btnOrder.Location = new System.Drawing.Point(232, 379);
             this.btnOrder.Name = "btnOrder";
-            this.btnOrder.Size = new System.Drawing.Size(154, 45);
+            this.btnOrder.Size = new System.Drawing.Size(269, 75);
             this.btnOrder.TabIndex = 17;
             this.btnOrder.Text = "Order";
             this.btnOrder.UseVisualStyleBackColor = true;
@@ -199,6 +197,8 @@
             // 
             this.dgvDataOrder.AllowUserToAddRows = false;
             this.dgvDataOrder.AllowUserToDeleteRows = false;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dgvDataOrder.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             this.dgvDataOrder.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
@@ -208,136 +208,101 @@
             this.clmNama,
             this.clmJumlah,
             this.clmHarga,
-            this.clmDiscount,
             this.clmPajak,
             this.clmSubTotal});
-            this.dgvDataOrder.Location = new System.Drawing.Point(8, 272);
-            this.dgvDataOrder.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.dgvDataOrder.Location = new System.Drawing.Point(630, 50);
             this.dgvDataOrder.Name = "dgvDataOrder";
             this.dgvDataOrder.ReadOnly = true;
+            this.dgvDataOrder.RowHeadersVisible = false;
             this.dgvDataOrder.RowTemplate.Height = 33;
-            this.dgvDataOrder.Size = new System.Drawing.Size(1725, 478);
+            this.dgvDataOrder.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvDataOrder.Size = new System.Drawing.Size(549, 322);
             this.dgvDataOrder.TabIndex = 16;
             this.dgvDataOrder.Resize += new System.EventHandler(this.dgvDataOrder_Resize);
             // 
-            // clmKode
-            // 
-            this.clmKode.HeaderText = "Kode";
-            this.clmKode.Name = "clmKode";
-            // 
-            // clmNama
-            // 
-            this.clmNama.HeaderText = "Nama";
-            this.clmNama.Name = "clmNama";
-            // 
-            // clmJumlah
-            // 
-            this.clmJumlah.HeaderText = "Jumlah";
-            this.clmJumlah.Name = "clmJumlah";
-            // 
-            // clmHarga
-            // 
-            this.clmHarga.HeaderText = "Harga";
-            this.clmHarga.Name = "clmHarga";
-            // 
-            // clmDiscount
-            // 
-            this.clmDiscount.HeaderText = "Discount";
-            this.clmDiscount.Name = "clmDiscount";
-            // 
-            // clmPajak
-            // 
-            this.clmPajak.HeaderText = "Pajak";
-            this.clmPajak.Name = "clmPajak";
-            // 
-            // clmSubTotal
-            // 
-            this.clmSubTotal.HeaderText = "SubTotal";
-            this.clmSubTotal.Name = "clmSubTotal";
-            // 
             // txtKode
             // 
-            this.txtKode.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtKode.Location = new System.Drawing.Point(242, 36);
-            this.txtKode.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.txtKode.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtKode.Location = new System.Drawing.Point(162, 81);
+            this.txtKode.Multiline = true;
             this.txtKode.Name = "txtKode";
-            this.txtKode.Size = new System.Drawing.Size(740, 31);
+            this.txtKode.Size = new System.Drawing.Size(281, 41);
             this.txtKode.TabIndex = 12;
             this.txtKode.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtAngka_KeyPress);
             this.txtKode.Leave += new System.EventHandler(this.txtKode_Leave);
             // 
             // txtNama
             // 
-            this.txtNama.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
             this.txtNama.Enabled = false;
-            this.txtNama.Location = new System.Drawing.Point(242, 91);
+            this.txtNama.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtNama.Location = new System.Drawing.Point(162, 133);
+            this.txtNama.Margin = new System.Windows.Forms.Padding(2);
+            this.txtNama.Multiline = true;
             this.txtNama.Name = "txtNama";
             this.txtNama.ReadOnly = true;
-            this.txtNama.Size = new System.Drawing.Size(740, 31);
+            this.txtNama.Size = new System.Drawing.Size(457, 41);
             this.txtNama.TabIndex = 14;
             this.txtNama.TabStop = false;
             // 
             // txtHarga
             // 
-            this.txtHarga.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
             this.txtHarga.Enabled = false;
-            this.txtHarga.Location = new System.Drawing.Point(242, 198);
+            this.txtHarga.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtHarga.Location = new System.Drawing.Point(162, 248);
+            this.txtHarga.Margin = new System.Windows.Forms.Padding(2);
+            this.txtHarga.Multiline = true;
             this.txtHarga.Name = "txtHarga";
             this.txtHarga.ReadOnly = true;
-            this.txtHarga.Size = new System.Drawing.Size(740, 31);
+            this.txtHarga.Size = new System.Drawing.Size(358, 41);
             this.txtHarga.TabIndex = 15;
             // 
             // lblKode
             // 
             this.lblKode.AutoSize = true;
-            this.lblKode.Location = new System.Drawing.Point(58, 36);
-            this.lblKode.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblKode.Font = new System.Drawing.Font("Microsoft Sans Serif", 19.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblKode.Location = new System.Drawing.Point(27, 82);
             this.lblKode.Name = "lblKode";
-            this.lblKode.Size = new System.Drawing.Size(62, 25);
+            this.lblKode.Size = new System.Drawing.Size(93, 38);
             this.lblKode.TabIndex = 8;
             this.lblKode.Text = "Kode";
             // 
             // lblNama
             // 
             this.lblNama.AutoSize = true;
-            this.lblNama.Location = new System.Drawing.Point(58, 91);
-            this.lblNama.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblNama.Font = new System.Drawing.Font("Microsoft Sans Serif", 19.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblNama.Location = new System.Drawing.Point(27, 134);
             this.lblNama.Name = "lblNama";
-            this.lblNama.Size = new System.Drawing.Size(68, 25);
+            this.lblNama.Size = new System.Drawing.Size(104, 38);
             this.lblNama.TabIndex = 9;
             this.lblNama.Text = "Nama";
             // 
             // txtJumlah
             // 
-            this.txtJumlah.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtJumlah.Location = new System.Drawing.Point(242, 144);
-            this.txtJumlah.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.txtJumlah.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtJumlah.Location = new System.Drawing.Point(162, 191);
+            this.txtJumlah.Multiline = true;
             this.txtJumlah.Name = "txtJumlah";
-            this.txtJumlah.Size = new System.Drawing.Size(740, 31);
+            this.txtJumlah.Size = new System.Drawing.Size(281, 41);
             this.txtJumlah.TabIndex = 13;
             this.txtJumlah.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtAngka_KeyPress);
             // 
             // lblJumlah
             // 
             this.lblJumlah.AutoSize = true;
-            this.lblJumlah.Location = new System.Drawing.Point(58, 144);
-            this.lblJumlah.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblJumlah.Font = new System.Drawing.Font("Microsoft Sans Serif", 19.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblJumlah.Location = new System.Drawing.Point(25, 194);
             this.lblJumlah.Name = "lblJumlah";
-            this.lblJumlah.Size = new System.Drawing.Size(81, 25);
+            this.lblJumlah.Size = new System.Drawing.Size(122, 38);
             this.lblJumlah.TabIndex = 10;
             this.lblJumlah.Text = "Jumlah";
             // 
             // lblHarga
             // 
             this.lblHarga.AutoSize = true;
-            this.lblHarga.Location = new System.Drawing.Point(58, 206);
-            this.lblHarga.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblHarga.Font = new System.Drawing.Font("Microsoft Sans Serif", 19.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblHarga.Location = new System.Drawing.Point(27, 248);
             this.lblHarga.Name = "lblHarga";
-            this.lblHarga.Size = new System.Drawing.Size(70, 25);
+            this.lblHarga.Size = new System.Drawing.Size(106, 38);
             this.lblHarga.TabIndex = 11;
             this.lblHarga.Text = "Harga";
             // 
@@ -353,10 +318,11 @@
             this.tabPage2.Controls.Add(this.lblJumlah1);
             this.tabPage2.Controls.Add(this.lblHarga1);
             this.tabPage2.Controls.Add(this.dgvDataBarang);
-            this.tabPage2.Location = new System.Drawing.Point(8, 39);
+            this.tabPage2.Location = new System.Drawing.Point(4, 40);
+            this.tabPage2.Margin = new System.Windows.Forms.Padding(2);
             this.tabPage2.Name = "tabPage2";
-            this.tabPage2.Padding = new System.Windows.Forms.Padding(3, 3, 3, 3);
-            this.tabPage2.Size = new System.Drawing.Size(1736, 908);
+            this.tabPage2.Padding = new System.Windows.Forms.Padding(2);
+            this.tabPage2.Size = new System.Drawing.Size(1190, 460);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Daftar Barang";
             this.tabPage2.UseVisualStyleBackColor = true;
@@ -364,9 +330,10 @@
             // btnCari
             // 
             this.btnCari.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnCari.Location = new System.Drawing.Point(1543, 130);
+            this.btnCari.Location = new System.Drawing.Point(1029, 83);
+            this.btnCari.Margin = new System.Windows.Forms.Padding(2);
             this.btnCari.Name = "btnCari";
-            this.btnCari.Size = new System.Drawing.Size(166, 55);
+            this.btnCari.Size = new System.Drawing.Size(118, 40);
             this.btnCari.TabIndex = 26;
             this.btnCari.Text = "Cari";
             this.btnCari.UseVisualStyleBackColor = true;
@@ -375,49 +342,44 @@
             // 
             this.txtKode1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtKode1.Location = new System.Drawing.Point(254, 41);
-            this.txtKode1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.txtKode1.Location = new System.Drawing.Point(169, 26);
             this.txtKode1.Name = "txtKode1";
-            this.txtKode1.Size = new System.Drawing.Size(1272, 31);
+            this.txtKode1.Size = new System.Drawing.Size(849, 38);
             this.txtKode1.TabIndex = 22;
             // 
             // txtNama1
             // 
             this.txtNama1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtNama1.Location = new System.Drawing.Point(254, 112);
-            this.txtNama1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.txtNama1.Location = new System.Drawing.Point(169, 72);
             this.txtNama1.Name = "txtNama1";
-            this.txtNama1.Size = new System.Drawing.Size(1272, 31);
+            this.txtNama1.Size = new System.Drawing.Size(849, 38);
             this.txtNama1.TabIndex = 24;
             // 
             // txtHarga1
             // 
             this.txtHarga1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtHarga1.Location = new System.Drawing.Point(254, 250);
-            this.txtHarga1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.txtHarga1.Location = new System.Drawing.Point(169, 160);
             this.txtHarga1.Name = "txtHarga1";
-            this.txtHarga1.Size = new System.Drawing.Size(1272, 31);
+            this.txtHarga1.Size = new System.Drawing.Size(849, 38);
             this.txtHarga1.TabIndex = 25;
             // 
             // lblKode1
             // 
             this.lblKode1.AutoSize = true;
-            this.lblKode1.Location = new System.Drawing.Point(74, 41);
-            this.lblKode1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblKode1.Location = new System.Drawing.Point(49, 26);
             this.lblKode1.Name = "lblKode1";
-            this.lblKode1.Size = new System.Drawing.Size(62, 25);
+            this.lblKode1.Size = new System.Drawing.Size(82, 32);
             this.lblKode1.TabIndex = 18;
             this.lblKode1.Text = "Kode";
             // 
             // lblNama1
             // 
             this.lblNama1.AutoSize = true;
-            this.lblNama1.Location = new System.Drawing.Point(74, 112);
-            this.lblNama1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblNama1.Location = new System.Drawing.Point(49, 72);
             this.lblNama1.Name = "lblNama1";
-            this.lblNama1.Size = new System.Drawing.Size(68, 25);
+            this.lblNama1.Size = new System.Drawing.Size(90, 32);
             this.lblNama1.TabIndex = 19;
             this.lblNama1.Text = "Nama";
             // 
@@ -425,29 +387,26 @@
             // 
             this.txtJumlah1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtJumlah1.Location = new System.Drawing.Point(254, 181);
-            this.txtJumlah1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.txtJumlah1.Location = new System.Drawing.Point(169, 116);
             this.txtJumlah1.Name = "txtJumlah1";
-            this.txtJumlah1.Size = new System.Drawing.Size(1272, 31);
+            this.txtJumlah1.Size = new System.Drawing.Size(849, 38);
             this.txtJumlah1.TabIndex = 23;
             // 
             // lblJumlah1
             // 
             this.lblJumlah1.AutoSize = true;
-            this.lblJumlah1.Location = new System.Drawing.Point(74, 181);
-            this.lblJumlah1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblJumlah1.Location = new System.Drawing.Point(49, 116);
             this.lblJumlah1.Name = "lblJumlah1";
-            this.lblJumlah1.Size = new System.Drawing.Size(81, 25);
+            this.lblJumlah1.Size = new System.Drawing.Size(107, 32);
             this.lblJumlah1.TabIndex = 20;
             this.lblJumlah1.Text = "Jumlah";
             // 
             // lblHarga1
             // 
             this.lblHarga1.AutoSize = true;
-            this.lblHarga1.Location = new System.Drawing.Point(74, 259);
-            this.lblHarga1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblHarga1.Location = new System.Drawing.Point(49, 166);
             this.lblHarga1.Name = "lblHarga1";
-            this.lblHarga1.Size = new System.Drawing.Size(70, 25);
+            this.lblHarga1.Size = new System.Drawing.Size(92, 32);
             this.lblHarga1.TabIndex = 21;
             this.lblHarga1.Text = "Harga";
             // 
@@ -464,12 +423,14 @@
             this.dataGridViewTextBoxColumn2,
             this.dataGridViewTextBoxColumn3,
             this.dataGridViewTextBoxColumn4});
-            this.dgvDataBarang.Location = new System.Drawing.Point(3, 323);
+            this.dgvDataBarang.Location = new System.Drawing.Point(4, 203);
+            this.dgvDataBarang.Margin = new System.Windows.Forms.Padding(2);
             this.dgvDataBarang.Name = "dgvDataBarang";
             this.dgvDataBarang.ReadOnly = true;
+            this.dgvDataBarang.RowHeadersVisible = false;
             this.dgvDataBarang.RowTemplate.Height = 33;
             this.dgvDataBarang.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvDataBarang.Size = new System.Drawing.Size(1718, 579);
+            this.dgvDataBarang.Size = new System.Drawing.Size(1182, 244);
             this.dgvDataBarang.TabIndex = 17;
             this.dgvDataBarang.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvDataBarang_CellDoubleClick);
             this.dgvDataBarang.Resize += new System.EventHandler(this.dgvDataBarang_Resize);
@@ -478,29 +439,35 @@
             // 
             this.dataGridViewTextBoxColumn1.HeaderText = "Kode";
             this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
+            this.dataGridViewTextBoxColumn1.ReadOnly = true;
             // 
             // dataGridViewTextBoxColumn2
             // 
             this.dataGridViewTextBoxColumn2.HeaderText = "Nama";
             this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
+            this.dataGridViewTextBoxColumn2.ReadOnly = true;
             // 
             // dataGridViewTextBoxColumn3
             // 
             this.dataGridViewTextBoxColumn3.HeaderText = "Jumlah";
             this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
+            this.dataGridViewTextBoxColumn3.ReadOnly = true;
             // 
             // dataGridViewTextBoxColumn4
             // 
             this.dataGridViewTextBoxColumn4.HeaderText = "Harga";
             this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
+            this.dataGridViewTextBoxColumn4.ReadOnly = true;
             // 
             // lblNamaAdmin
             // 
             this.lblNamaAdmin.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.lblNamaAdmin.AutoSize = true;
-            this.lblNamaAdmin.Location = new System.Drawing.Point(1508, 47);
+            this.lblNamaAdmin.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblNamaAdmin.Location = new System.Drawing.Point(869, 20);
+            this.lblNamaAdmin.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblNamaAdmin.Name = "lblNamaAdmin";
-            this.lblNamaAdmin.Size = new System.Drawing.Size(68, 25);
+            this.lblNamaAdmin.Size = new System.Drawing.Size(90, 32);
             this.lblNamaAdmin.TabIndex = 1;
             this.lblNamaAdmin.Text = "Nama";
             // 
@@ -508,45 +475,88 @@
             // 
             this.lblNamaAdminIsi.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.lblNamaAdminIsi.AutoSize = true;
-            this.lblNamaAdminIsi.Location = new System.Drawing.Point(1582, 47);
+            this.lblNamaAdminIsi.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblNamaAdminIsi.Location = new System.Drawing.Point(992, 20);
+            this.lblNamaAdminIsi.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblNamaAdminIsi.Name = "lblNamaAdminIsi";
-            this.lblNamaAdminIsi.Size = new System.Drawing.Size(155, 25);
+            this.lblNamaAdminIsi.Size = new System.Drawing.Size(203, 32);
             this.lblNamaAdminIsi.TabIndex = 2;
             this.lblNamaAdminIsi.Text = "{ nama admin }";
             // 
             // btnTambah
             // 
             this.btnTambah.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnTambah.Location = new System.Drawing.Point(1276, 39);
+            this.btnTambah.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnTambah.Location = new System.Drawing.Point(680, 11);
+            this.btnTambah.Margin = new System.Windows.Forms.Padding(2);
             this.btnTambah.Name = "btnTambah";
-            this.btnTambah.Size = new System.Drawing.Size(212, 41);
+            this.btnTambah.Size = new System.Drawing.Size(132, 49);
             this.btnTambah.TabIndex = 3;
             this.btnTambah.Text = "Tambah Barang";
             this.btnTambah.UseVisualStyleBackColor = true;
             this.btnTambah.Click += new System.EventHandler(this.btnTambah_Click);
             // 
-            // label3
+            // clmKode
             // 
-            this.label3.AutoSize = true;
-            this.label3.ForeColor = System.Drawing.Color.Red;
-            this.label3.Location = new System.Drawing.Point(158, 3);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(189, 17);
-            this.label3.TabIndex = 32;
-            this.label3.Text = "Kode barang tidak terdefinisi";
-            this.label3.Visible = false;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.clmKode.DefaultCellStyle = dataGridViewCellStyle2;
+            this.clmKode.HeaderText = "Kode";
+            this.clmKode.Name = "clmKode";
+            this.clmKode.ReadOnly = true;
+            // 
+            // clmNama
+            // 
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.clmNama.DefaultCellStyle = dataGridViewCellStyle3;
+            this.clmNama.HeaderText = "Nama";
+            this.clmNama.Name = "clmNama";
+            this.clmNama.ReadOnly = true;
+            // 
+            // clmJumlah
+            // 
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.clmJumlah.DefaultCellStyle = dataGridViewCellStyle4;
+            this.clmJumlah.HeaderText = "Jumlah";
+            this.clmJumlah.Name = "clmJumlah";
+            this.clmJumlah.ReadOnly = true;
+            // 
+            // clmHarga
+            // 
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.clmHarga.DefaultCellStyle = dataGridViewCellStyle5;
+            this.clmHarga.HeaderText = "Harga";
+            this.clmHarga.Name = "clmHarga";
+            this.clmHarga.ReadOnly = true;
+            // 
+            // clmPajak
+            // 
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.clmPajak.DefaultCellStyle = dataGridViewCellStyle6;
+            this.clmPajak.HeaderText = "Pajak";
+            this.clmPajak.Name = "clmPajak";
+            this.clmPajak.ReadOnly = true;
+            this.clmPajak.Width = 50;
+            // 
+            // clmSubTotal
+            // 
+            dataGridViewCellStyle7.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.clmSubTotal.DefaultCellStyle = dataGridViewCellStyle7;
+            this.clmSubTotal.HeaderText = "SubTotal";
+            this.clmSubTotal.Name = "clmSubTotal";
+            this.clmSubTotal.ReadOnly = true;
+            this.clmSubTotal.Width = 50;
             // 
             // FrmTampilBarang
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1774, 1055);
+            this.ClientSize = new System.Drawing.Size(1213, 568);
             this.Controls.Add(this.btnTambah);
             this.Controls.Add(this.lblNamaAdminIsi);
             this.Controls.Add(this.lblNamaAdmin);
             this.Controls.Add(this.tabData);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(1);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "FrmTampilBarang";
@@ -573,10 +583,6 @@
         private System.Windows.Forms.TabPage tabPage2;
         private System.Windows.Forms.Button btnOrder;
         private System.Windows.Forms.DataGridView dgvDataOrder;
-        private System.Windows.Forms.DataGridViewTextBoxColumn clmKode;
-        private System.Windows.Forms.DataGridViewTextBoxColumn clmNama;
-        private System.Windows.Forms.DataGridViewTextBoxColumn clmJumlah;
-        private System.Windows.Forms.DataGridViewTextBoxColumn clmHarga;
         private System.Windows.Forms.TextBox txtKode;
         private System.Windows.Forms.TextBox txtNama;
         private System.Windows.Forms.TextBox txtHarga;
@@ -603,15 +609,16 @@
         private System.Windows.Forms.Label lblJumlah1;
         private System.Windows.Forms.Label lblHarga1;
         private System.Windows.Forms.TextBox txtPajak;
-        private System.Windows.Forms.TextBox txtDiscount;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.DataGridViewTextBoxColumn clmDiscount;
-        private System.Windows.Forms.DataGridViewTextBoxColumn clmPajak;
-        private System.Windows.Forms.DataGridViewTextBoxColumn clmSubTotal;
         private System.Windows.Forms.Label lblTotal;
         private System.Windows.Forms.Button btnBayar;
         private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.DataGridViewTextBoxColumn clmKode;
+        private System.Windows.Forms.DataGridViewTextBoxColumn clmNama;
+        private System.Windows.Forms.DataGridViewTextBoxColumn clmJumlah;
+        private System.Windows.Forms.DataGridViewTextBoxColumn clmHarga;
+        private System.Windows.Forms.DataGridViewTextBoxColumn clmPajak;
+        private System.Windows.Forms.DataGridViewTextBoxColumn clmSubTotal;
     }
 }
 
