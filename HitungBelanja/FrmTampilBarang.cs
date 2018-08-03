@@ -14,6 +14,7 @@ namespace HitungBelanja
     public partial class FrmTampilBarang : Form
     {
         Barang brg = null;
+        decimal temp = 0;
 
         string sqlString = @"Data Source = (localdb)\MSSQLLocalDB; Initial Catalog = HitungBelanja; Integrated Security = True;";
 
@@ -41,9 +42,11 @@ namespace HitungBelanja
                     this.dgvDataBarang.Columns[0].DataPropertyName = "kode";
                     this.dgvDataBarang.Columns[1].DataPropertyName = "nama";
                     this.dgvDataBarang.Columns[2].DataPropertyName = "jumlah";
-                    this.dgvDataBarang.Columns[3].DataPropertyName = "harga";
+                    this.dgvDataBarang.Columns[3].DataPropertyName = "harga";             
                 }
             }
+
+            this.lblTotal.Text = temp.ToString();
         }
 
         private void dgvDataBarang_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
@@ -107,12 +110,65 @@ namespace HitungBelanja
                 else if (this.txtJumlah.Text.Equals("")) throw new Exception("Jumlah tidak boleh kosong...");
                 else if (this.txtDiscount.Text.Equals("")) throw new Exception("Diskon tidak boleh kosong...");
                 else if (this.txtPajak.Text.Equals("")) throw new Exception("Pajak tidak boleh kosong...");
+                else
+                {
+                    decimal diskon = int.Parse(this.txtJumlah.Text) * (Convert.ToDecimal(this.txtHarga.Text) * (Convert.ToDecimal(this.txtDiscount.Text) / 100));
+                    decimal pajak = int.Parse(this.txtJumlah.Text) * (Convert.ToDecimal(this.txtHarga.Text) * (Convert.ToDecimal(this.txtPajak.Text) / 100));
+
+
+                    decimal subTotal = (int.Parse(this.txtJumlah.Text.ToString()) * Convert.ToDecimal(this.txtHarga.Text.ToString())) -
+                                        diskon + pajak;
+
+                    this.dgvDataOrder.DataSource = null;
+                    this.dgvDataOrder.Rows.Add(new string[]
+                    {
+                        this.txtKode.Text.ToString(), this.txtNama.Text.ToString(), this.txtJumlah.Text.ToString(),
+                        this.txtHarga.Text.ToString(), diskon.ToString(), pajak.ToString(), subTotal.ToString()
+                    });
+
+                    temp += subTotal;
+                    FrmTampilBarang_Load(null, null);
+                }
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message, this.Text, MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
 
+        }
+
+        private void txtDiscount_TextChanged(object sender, EventArgs e)
+        {   
+            if (this.txtDiscount.Text != "" )
+            {
+                decimal disc = Convert.ToDecimal(this.txtDiscount.Text);
+                if (disc > 100)
+                {
+                    this.txtDiscount.Text = "100";
+                }
+                else
+                {
+                    this.txtDiscount.Text = disc.ToString();
+                }
+                this.txtDiscount.SelectionStart = this.txtDiscount.Text.Length;
+            }
+        }
+
+        private void txtPajak_TextChanged(object sender, EventArgs e)
+        {
+            if (this.txtPajak.Text != "")
+            {
+                decimal pjk = Convert.ToDecimal(this.txtPajak.Text);
+                if (pjk > 100)
+                {
+                    this.txtPajak.Text = "100";
+                }
+                else
+                {
+                    this.txtPajak.Text = pjk.ToString();
+                }
+                this.txtPajak.SelectionStart = this.txtPajak.Text.Length;
+            }
         }
     }
 }
