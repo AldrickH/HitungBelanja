@@ -13,13 +13,15 @@ namespace HitungBelanja
 {
     public partial class FrmTampilBarang : Form
     {
+        Akun akun = null;
         Barang brg = null;
         decimal temp = 0;
 
         string sqlString = @"Data Source = (localdb)\MSSQLLocalDB; Initial Catalog = HitungBelanja; Integrated Security = True;";
 
-        public FrmTampilBarang()
+        public FrmTampilBarang(Akun temp)
         {
+            akun = temp;
             InitializeComponent();
             this.dgvDataBarang.AutoGenerateColumns = false;
         }
@@ -33,12 +35,14 @@ namespace HitungBelanja
 
         private void FrmTampilBarang_Load(object sender, EventArgs e)
         {
+            this.lblNamaAdminIsi.Text = akun.Username;
+
             using (var dao = new BarangDAO(sqlString))
             {
-                if (dao.GetAllDataBarang().Capacity > 0)
+                if (dao.GetAllDataBarang(brg).Capacity > 0)
                 {
                     this.dgvDataBarang.DataSource = null;
-                    this.dgvDataBarang.DataSource = dao.GetAllDataBarang();
+                    this.dgvDataBarang.DataSource = dao.GetAllDataBarang(brg);
                     this.dgvDataBarang.Columns[0].DataPropertyName = "kode";
                     this.dgvDataBarang.Columns[1].DataPropertyName = "nama";
                     this.dgvDataBarang.Columns[2].DataPropertyName = "jumlah";
@@ -46,9 +50,9 @@ namespace HitungBelanja
                 }
             }
 
+
             this.lblTotal.Text = temp.ToString();
         }
-
         private void dgvDataBarang_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
             if (this.dgvDataBarang.SelectedRows.Count > 0)
@@ -85,6 +89,7 @@ namespace HitungBelanja
                 {
                     this.txtNama.Text = brg.Nama;
                     this.txtHarga.Text = brg.Harga.ToString();
+                    this.txtStock.Text = brg.Jumlah.ToString();
                 }
                 else
                 {
@@ -113,12 +118,11 @@ namespace HitungBelanja
             {
                 if (this.txtKode.Text.Equals("")) throw new Exception("Kode tidak boleh kosong...");
                 else if (this.txtJumlah.Text.Equals("")) throw new Exception("Jumlah tidak boleh kosong...");
+                else if (int.Parse(this.txtJumlah.Text) <= 0) throw new Exception("Jumlah tidak boleh nol");
                 else if (this.txtPajak.Text.Equals("")) throw new Exception("Pajak tidak boleh kosong...");
                 else
                 {
                     decimal pajak = int.Parse(this.txtJumlah.Text) * (Convert.ToDecimal(this.txtHarga.Text) * (Convert.ToDecimal(this.txtPajak.Text) / 100));
-
-
                     decimal subTotal = (int.Parse(this.txtJumlah.Text.ToString()) * Convert.ToDecimal(this.txtHarga.Text.ToString())) + pajak;
 
                     this.dgvDataOrder.DataSource = null;
@@ -130,6 +134,12 @@ namespace HitungBelanja
 
                     temp += subTotal;
                     FrmTampilBarang_Load(null, null);
+                    this.txtKode.Text = "";
+                    this.txtNama.Text = "";
+                    this.txtJumlah.Text = "";
+                    this.txtStock.Text = "";
+                    this.txtHarga.Text = "";
+                    this.txtPajak.Text = "";
                 }
             }
             catch (Exception ex)
@@ -155,6 +165,49 @@ namespace HitungBelanja
                 this.txtPajak.SelectionStart = this.txtPajak.Text.Length;
             }
         }
+
+        private void btnLogout_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void txtJumlah_TextChanged(object sender, EventArgs e)
+        {
+            int temp = 0;
+            
+            if (this.txtJumlah.Text != "")
+            {
+                temp = int.Parse(this.txtJumlah.Text);
+                if (int.Parse(this.txtJumlah.Text) > int.Parse(txtStock.Text))
+                {
+                    this.txtJumlah.Text = txtStock.Text;
+                }
+                else
+                {
+                    this.txtJumlah.Text = temp.ToString();
+                }
+                this.txtJumlah.SelectionStart = this.txtJumlah.Text.Length;
+            }
+            else
+            {
+                this.txtJumlah.Text = "";
+            }
+        }
+
+        private void txtAngkaHuruf_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsLetterOrDigit(e.KeyChar) && e.KeyChar != (char)Keys.Back && !char.IsWhiteSpace(e.KeyChar))
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void btnCari_Click(object sender, EventArgs e)
+        {
+           
+        }
+
+        
     }
 }
 
