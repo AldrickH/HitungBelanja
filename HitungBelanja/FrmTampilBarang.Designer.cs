@@ -71,6 +71,7 @@
             this.lblNamaAdmin = new System.Windows.Forms.Label();
             this.lblNamaAdminIsi = new System.Windows.Forms.Label();
             this.btnTambah = new System.Windows.Forms.Button();
+            this.label3 = new System.Windows.Forms.Label();
             this.tabData.SuspendLayout();
             this.tabPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDataOrder)).BeginInit();
@@ -94,6 +95,7 @@
             // 
             // tabPage1
             // 
+            this.tabPage1.Controls.Add(this.label3);
             this.tabPage1.Controls.Add(this.btnBayar);
             this.tabPage1.Controls.Add(this.lblTotal);
             this.tabPage1.Controls.Add(this.txtPajak);
@@ -513,6 +515,17 @@
             this.btnTambah.UseVisualStyleBackColor = true;
             this.btnTambah.Click += new System.EventHandler(this.btnTambah_Click);
             // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.ForeColor = System.Drawing.Color.Red;
+            this.label3.Location = new System.Drawing.Point(158, 3);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(189, 17);
+            this.label3.TabIndex = 32;
+            this.label3.Text = "Kode barang tidak terdefinisi";
+            this.label3.Visible = false;
+            // 
             // FrmTampilBarang
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -588,6 +601,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn clmSubTotal;
         private System.Windows.Forms.Label lblTotal;
         private System.Windows.Forms.Button btnBayar;
+        private System.Windows.Forms.Label label3;
     }
 }
 

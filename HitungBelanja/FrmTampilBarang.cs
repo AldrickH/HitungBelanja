@@ -86,7 +86,9 @@ namespace HitungBelanja
                 }
                 else
                 {
-
+                    this.txtKode.Text = "";
+                    this.txtKode.Focus();
+                    this.label3.Visible = true;
                 }
             }
         }
@@ -107,6 +109,10 @@ namespace HitungBelanja
                 else if (this.txtJumlah.Text.Equals("")) throw new Exception("Jumlah tidak boleh kosong...");
                 else if (this.txtDiscount.Text.Equals("")) throw new Exception("Diskon tidak boleh kosong...");
                 else if (this.txtPajak.Text.Equals("")) throw new Exception("Pajak tidak boleh kosong...");
+                else
+                {
+                    
+                }
             }
             catch (Exception ex)
             {
