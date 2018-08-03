@@ -168,6 +168,43 @@ namespace Library
             return result;
         }
 
+        public string GetKodeBarangBerikutnya()
+        {
+            string result = "";
+            try
+            {
+                using (SqlCommand cmd = new SqlCommand(@"Select top 1 Kode from barang order by kode desc", _conn))
+                {
+                    cmd.Parameters.Clear();
+                    using (SqlDataReader reader = cmd.ExecuteReader())
+                    {
+                        if (reader.HasRows)
+                        {
+                            if (reader.Read())
+                            {
+                                result = reader["Kode"].ToString();
+                            }
+                        }
+                    }
+                }
+
+                if (result.Equals(""))
+                {
+                    result = "0001";
+                }
+                else
+                {
+                    result = $"{(int.Parse(result) + 1).ToString("0000")}";
+                }
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+            return result;
+        }
+
         public void Dispose()
         {
             if (_conn != null) _conn.Close();
