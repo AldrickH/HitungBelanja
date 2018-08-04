@@ -28,13 +28,13 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle14 = new System.Windows.Forms.DataGridViewCellStyle();
             this.tabData = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.label3 = new System.Windows.Forms.Label();
@@ -44,6 +44,12 @@
             this.label1 = new System.Windows.Forms.Label();
             this.btnOrder = new System.Windows.Forms.Button();
             this.dgvDataOrder = new System.Windows.Forms.DataGridView();
+            this.clmKode = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clmNama = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clmJumlah = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clmHarga = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clmPajak = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clmSubTotal = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.txtKode = new System.Windows.Forms.TextBox();
             this.txtNama = new System.Windows.Forms.TextBox();
             this.txtHarga = new System.Windows.Forms.TextBox();
@@ -70,12 +76,6 @@
             this.lblNamaAdmin = new System.Windows.Forms.Label();
             this.lblNamaAdminIsi = new System.Windows.Forms.Label();
             this.btnTambah = new System.Windows.Forms.Button();
-            this.clmKode = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.clmNama = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.clmJumlah = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.clmHarga = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.clmPajak = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.clmSubTotal = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tabData.SuspendLayout();
             this.tabPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDataOrder)).BeginInit();
@@ -128,7 +128,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.ForeColor = System.Drawing.Color.Red;
-            this.label3.Location = new System.Drawing.Point(156, 46);
+            this.label3.Location = new System.Drawing.Point(156, 37);
             this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(377, 32);
@@ -146,6 +146,7 @@
             this.btnBayar.TabIndex = 31;
             this.btnBayar.Text = "Bayar";
             this.btnBayar.UseVisualStyleBackColor = true;
+            this.btnBayar.Click += new System.EventHandler(this.btnBayar_Click);
             // 
             // lblTotal
             // 
@@ -197,8 +198,8 @@
             // 
             this.dgvDataOrder.AllowUserToAddRows = false;
             this.dgvDataOrder.AllowUserToDeleteRows = false;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dgvDataOrder.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle8.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dgvDataOrder.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle8;
             this.dgvDataOrder.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
@@ -219,6 +220,56 @@
             this.dgvDataOrder.Size = new System.Drawing.Size(549, 322);
             this.dgvDataOrder.TabIndex = 16;
             this.dgvDataOrder.Resize += new System.EventHandler(this.dgvDataOrder_Resize);
+            // 
+            // clmKode
+            // 
+            dataGridViewCellStyle9.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.clmKode.DefaultCellStyle = dataGridViewCellStyle9;
+            this.clmKode.HeaderText = "Kode";
+            this.clmKode.Name = "clmKode";
+            this.clmKode.ReadOnly = true;
+            // 
+            // clmNama
+            // 
+            dataGridViewCellStyle10.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.clmNama.DefaultCellStyle = dataGridViewCellStyle10;
+            this.clmNama.HeaderText = "Nama";
+            this.clmNama.Name = "clmNama";
+            this.clmNama.ReadOnly = true;
+            // 
+            // clmJumlah
+            // 
+            dataGridViewCellStyle11.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.clmJumlah.DefaultCellStyle = dataGridViewCellStyle11;
+            this.clmJumlah.HeaderText = "Jumlah";
+            this.clmJumlah.Name = "clmJumlah";
+            this.clmJumlah.ReadOnly = true;
+            // 
+            // clmHarga
+            // 
+            dataGridViewCellStyle12.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.clmHarga.DefaultCellStyle = dataGridViewCellStyle12;
+            this.clmHarga.HeaderText = "Harga";
+            this.clmHarga.Name = "clmHarga";
+            this.clmHarga.ReadOnly = true;
+            // 
+            // clmPajak
+            // 
+            dataGridViewCellStyle13.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.clmPajak.DefaultCellStyle = dataGridViewCellStyle13;
+            this.clmPajak.HeaderText = "Pajak";
+            this.clmPajak.Name = "clmPajak";
+            this.clmPajak.ReadOnly = true;
+            this.clmPajak.Width = 50;
+            // 
+            // clmSubTotal
+            // 
+            dataGridViewCellStyle14.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.clmSubTotal.DefaultCellStyle = dataGridViewCellStyle14;
+            this.clmSubTotal.HeaderText = "SubTotal";
+            this.clmSubTotal.Name = "clmSubTotal";
+            this.clmSubTotal.ReadOnly = true;
+            this.clmSubTotal.Width = 50;
             // 
             // txtKode
             // 
@@ -495,56 +546,6 @@
             this.btnTambah.Text = "Tambah Barang";
             this.btnTambah.UseVisualStyleBackColor = true;
             this.btnTambah.Click += new System.EventHandler(this.btnTambah_Click);
-            // 
-            // clmKode
-            // 
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.clmKode.DefaultCellStyle = dataGridViewCellStyle2;
-            this.clmKode.HeaderText = "Kode";
-            this.clmKode.Name = "clmKode";
-            this.clmKode.ReadOnly = true;
-            // 
-            // clmNama
-            // 
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.clmNama.DefaultCellStyle = dataGridViewCellStyle3;
-            this.clmNama.HeaderText = "Nama";
-            this.clmNama.Name = "clmNama";
-            this.clmNama.ReadOnly = true;
-            // 
-            // clmJumlah
-            // 
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.clmJumlah.DefaultCellStyle = dataGridViewCellStyle4;
-            this.clmJumlah.HeaderText = "Jumlah";
-            this.clmJumlah.Name = "clmJumlah";
-            this.clmJumlah.ReadOnly = true;
-            // 
-            // clmHarga
-            // 
-            dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.clmHarga.DefaultCellStyle = dataGridViewCellStyle5;
-            this.clmHarga.HeaderText = "Harga";
-            this.clmHarga.Name = "clmHarga";
-            this.clmHarga.ReadOnly = true;
-            // 
-            // clmPajak
-            // 
-            dataGridViewCellStyle6.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.clmPajak.DefaultCellStyle = dataGridViewCellStyle6;
-            this.clmPajak.HeaderText = "Pajak";
-            this.clmPajak.Name = "clmPajak";
-            this.clmPajak.ReadOnly = true;
-            this.clmPajak.Width = 50;
-            // 
-            // clmSubTotal
-            // 
-            dataGridViewCellStyle7.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.clmSubTotal.DefaultCellStyle = dataGridViewCellStyle7;
-            this.clmSubTotal.HeaderText = "SubTotal";
-            this.clmSubTotal.Name = "clmSubTotal";
-            this.clmSubTotal.ReadOnly = true;
-            this.clmSubTotal.Width = 50;
             // 
             // FrmTampilBarang
             // 
