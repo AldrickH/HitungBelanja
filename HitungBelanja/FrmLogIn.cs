@@ -31,7 +31,7 @@ namespace HitungBelanja
                     
                     if (temp.Password.Equals(txtPassword.Text))
                     {
-                        FrmTampilBarang frm = new FrmTampilBarang();
+                        FrmTampilBarang frm = new FrmTampilBarang(temp);
                         this.Hide();
                         frm.ShowDialog();
                         this.Close();

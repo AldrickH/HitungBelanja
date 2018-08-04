@@ -100,7 +100,7 @@ namespace Library
         }
 
 
-        public List<Barang> GetAllDataBarang()
+        public List<Barang> GetAllDataBarang(Barang barang)
         {
             List<Barang> listData = null;
             try
