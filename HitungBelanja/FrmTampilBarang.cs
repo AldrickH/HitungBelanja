@@ -15,6 +15,7 @@ namespace HitungBelanja
     {
         Akun akun = null;
         Barang brg = null;
+        List<Order> listOrder = null;
         decimal temp = 0;
 
         string sqlString = @"Data Source = (localdb)\MSSQLLocalDB; Initial Catalog = HitungBelanja; Integrated Security = True;";
@@ -50,6 +51,18 @@ namespace HitungBelanja
                 }
             }
 
+            if (listOrder == null) { this.listOrder = new List<Order>(); }
+
+            else
+            {
+                this.dgvDataOrder.Rows.Clear();
+                foreach (Order ord in listOrder)
+                {
+                    this.dgvDataOrder.Rows.Add(new string[] {
+                    ord.DataBarang.Kode, ord.DataBarang.Nama, ord.JumlahBeli.ToString(),
+                    ord.DataBarang.Harga.ToString(), ord.Pajak.ToString(), ord.SubTotal.ToString()});
+                }
+           } 
 
             this.lblTotal.Text = temp.ToString();
         }
@@ -123,13 +136,16 @@ namespace HitungBelanja
                 else
                 {
                     decimal pajak = int.Parse(this.txtJumlah.Text) * (Convert.ToDecimal(this.txtHarga.Text) * (Convert.ToDecimal(this.txtPajak.Text) / 100));
-                    decimal subTotal = (int.Parse(this.txtJumlah.Text.ToString()) * Convert.ToDecimal(this.txtHarga.Text.ToString())) + pajak;
+                    decimal subTotal = (int.Parse(this.txtJumlah.Text) * Convert.ToDecimal(this.txtHarga.Text)) + pajak;
 
-                    this.dgvDataOrder.DataSource = null;
-                    this.dgvDataOrder.Rows.Add(new string[]
+                    listOrder.Add(new Order
                     {
-                        this.txtKode.Text.ToString(), this.txtNama.Text.ToString(), this.txtJumlah.Text.ToString(),
-                        this.txtHarga.Text.ToString(), pajak.ToString(), subTotal.ToString()
+                        DataBarang = brg,
+                        JumlahBeli = int.Parse(this.txtJumlah.Text),
+                        NoNota = "A0001",
+                        NoOrder = "0001",
+                        SubTotal = subTotal,
+                        Pajak = pajak
                     });
 
                     temp += subTotal;
@@ -207,7 +223,13 @@ namespace HitungBelanja
            
         }
 
-        
+        private void btnBayar_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            FrmReceipt frm1 = new FrmReceipt();
+            frm1.Run(listOrder);
+            this.Show();
+        }
     }
 }
 
