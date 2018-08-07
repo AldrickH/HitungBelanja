@@ -247,40 +247,40 @@
             // 
             // clmKode
             // 
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.clmKode.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle8.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.clmKode.DefaultCellStyle = dataGridViewCellStyle8;
             this.clmKode.HeaderText = "Kode";
             this.clmKode.Name = "clmKode";
             this.clmKode.ReadOnly = true;
             // 
             // clmNama
             // 
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.clmNama.DefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle9.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.clmNama.DefaultCellStyle = dataGridViewCellStyle9;
             this.clmNama.HeaderText = "Nama";
             this.clmNama.Name = "clmNama";
             this.clmNama.ReadOnly = true;
             // 
             // clmJumlah
             // 
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.clmJumlah.DefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle10.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.clmJumlah.DefaultCellStyle = dataGridViewCellStyle10;
             this.clmJumlah.HeaderText = "Jumlah";
             this.clmJumlah.Name = "clmJumlah";
             this.clmJumlah.ReadOnly = true;
             // 
             // clmHarga
             // 
-            dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.clmHarga.DefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle11.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.clmHarga.DefaultCellStyle = dataGridViewCellStyle11;
             this.clmHarga.HeaderText = "Harga";
             this.clmHarga.Name = "clmHarga";
             this.clmHarga.ReadOnly = true;
             // 
             // clmPajak
             // 
-            dataGridViewCellStyle6.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.clmPajak.DefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle12.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.clmPajak.DefaultCellStyle = dataGridViewCellStyle12;
             this.clmPajak.HeaderText = "Pajak";
             this.clmPajak.Name = "clmPajak";
             this.clmPajak.ReadOnly = true;
@@ -288,8 +288,8 @@
             // 
             // clmSubTotal
             // 
-            dataGridViewCellStyle7.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.clmSubTotal.DefaultCellStyle = dataGridViewCellStyle7;
+            dataGridViewCellStyle13.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.clmSubTotal.DefaultCellStyle = dataGridViewCellStyle13;
             this.clmSubTotal.HeaderText = "SubTotal";
             this.clmSubTotal.Name = "clmSubTotal";
             this.clmSubTotal.ReadOnly = true;

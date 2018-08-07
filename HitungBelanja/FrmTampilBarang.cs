@@ -13,16 +13,14 @@ namespace HitungBelanja
 {
     public partial class FrmTampilBarang : Form
     {
-        Akun akun = null;
         Barang brg = null;
         List<Order> listOrder = null;
         decimal temp = 0;
 
         string sqlString = @"Data Source = (localdb)\MSSQLLocalDB; Initial Catalog = HitungBelanja; Integrated Security = True;";
 
-        public FrmTampilBarang(Akun temp)
+        public FrmTampilBarang()
         {
-            akun = temp;
             InitializeComponent();
             this.dgvDataBarang.AutoGenerateColumns = false;
         }
@@ -36,7 +34,6 @@ namespace HitungBelanja
 
         private void FrmTampilBarang_Load(object sender, EventArgs e)
         {
-            this.lblNamaAdminIsi.Text = akun.Username;
 
             using (var dao = new BarangDAO(sqlString))
             {
@@ -68,6 +65,7 @@ namespace HitungBelanja
         }
         private void dgvDataBarang_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
+            MessageBox.Show(this.dgvDataBarang.SelectedRows.Count.ToString());
             if (this.dgvDataBarang.SelectedRows.Count > 0)
             {
                 FrmTambahBarang frm = new FrmTambahBarang();
@@ -111,6 +109,7 @@ namespace HitungBelanja
                     this.txtJumlah.Text = "";
                     this.txtNama.Text = "";
                     this.txtPajak.Text = "";
+                    this.txtStock.Text = "";
                     this.txtKode.Focus();
                     this.label3.Visible = true;
                 }
