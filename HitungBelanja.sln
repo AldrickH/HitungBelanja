@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HitungBelanja", "HitungBela
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Library", "Library\Library.csproj", "{83E25405-FE82-43FC-8988-1B9AF8576417}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LibraryTests", "LibraryTests\LibraryTests.csproj", "{380CF4B7-427F-42ED-AC9E-BED4ED5AEE2E}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{83E25405-FE82-43FC-8988-1B9AF8576417}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{83E25405-FE82-43FC-8988-1B9AF8576417}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{83E25405-FE82-43FC-8988-1B9AF8576417}.Release|Any CPU.Build.0 = Release|Any CPU
+		{380CF4B7-427F-42ED-AC9E-BED4ED5AEE2E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{380CF4B7-427F-42ED-AC9E-BED4ED5AEE2E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{380CF4B7-427F-42ED-AC9E-BED4ED5AEE2E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{380CF4B7-427F-42ED-AC9E-BED4ED5AEE2E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

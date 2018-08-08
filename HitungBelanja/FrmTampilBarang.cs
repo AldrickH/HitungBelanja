@@ -13,16 +13,14 @@ namespace HitungBelanja
 {
     public partial class FrmTampilBarang : Form
     {
-        Akun akun = null;
         Barang brg = null;
         List<Order> listOrder = null;
         decimal temp = 0;
 
         string sqlString = @"Data Source = (localdb)\MSSQLLocalDB; Initial Catalog = HitungBelanja; Integrated Security = True;";
 
-        public FrmTampilBarang(Akun temp)
+        public FrmTampilBarang()
         {
-            akun = temp;
             InitializeComponent();
             this.dgvDataBarang.AutoGenerateColumns = false;
         }
@@ -36,7 +34,6 @@ namespace HitungBelanja
 
         private void FrmTampilBarang_Load(object sender, EventArgs e)
         {
-            this.lblNamaAdminIsi.Text = akun.Username;
 
             using (var dao = new BarangDAO(sqlString))
             {
@@ -59,15 +56,16 @@ namespace HitungBelanja
                 foreach (Order ord in listOrder)
                 {
                     this.dgvDataOrder.Rows.Add(new string[] {
-                    ord.DataBarang.Kode, ord.DataBarang.Nama, ord.JumlahBeli.ToString(),
-                    ord.DataBarang.Harga.ToString(), ord.Pajak.ToString(), ord.SubTotal.ToString()});
+                    ord.DataBarang.Kode, ord.DataBarang.Nama, ord.DataBarang.Harga.ToString("c"),
+                    ord.JumlahBeli.ToString(), ord.Pajak, ord.SubTotal.ToString("c")});
                 }
            } 
 
-            this.lblTotal.Text = temp.ToString();
+            this.lblTotal.Text = temp.ToString("c");
         }
         private void dgvDataBarang_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
+            MessageBox.Show(this.dgvDataBarang.SelectedRows.Count.ToString());
             if (this.dgvDataBarang.SelectedRows.Count > 0)
             {
                 FrmTambahBarang frm = new FrmTambahBarang();
@@ -88,8 +86,8 @@ namespace HitungBelanja
         {
             this.dgvDataOrder.Columns[0].Width = 10 * this.dgvDataOrder.Width / 100;
             this.dgvDataOrder.Columns[1].Width = 25 * this.dgvDataOrder.Width / 100;
-            this.dgvDataOrder.Columns[2].Width = 10 * this.dgvDataOrder.Width / 100;
-            this.dgvDataOrder.Columns[3].Width = 20 * this.dgvDataOrder.Width / 100;
+            this.dgvDataOrder.Columns[2].Width = 20 * this.dgvDataOrder.Width / 100;
+            this.dgvDataOrder.Columns[3].Width = 10 * this.dgvDataOrder.Width / 100;
             this.dgvDataOrder.Columns[4].Width = 20 * this.dgvDataOrder.Width / 100;
             this.dgvDataOrder.Columns[5].Width = 14 * this.dgvDataOrder.Width / 100;
         }
@@ -111,6 +109,7 @@ namespace HitungBelanja
                     this.txtJumlah.Text = "";
                     this.txtNama.Text = "";
                     this.txtPajak.Text = "";
+                    this.txtStock.Text = "";
                     this.txtKode.Focus();
                     this.label3.Visible = true;
                 }
@@ -142,10 +141,8 @@ namespace HitungBelanja
                     {
                         DataBarang = brg,
                         JumlahBeli = int.Parse(this.txtJumlah.Text),
-                        NoNota = "A0001",
-                        NoOrder = "0001",
                         SubTotal = subTotal,
-                        Pajak = pajak
+                        Pajak = $"{this.txtPajak.Text} %"
                     });
 
                     temp += subTotal;
@@ -156,6 +153,9 @@ namespace HitungBelanja
                     this.txtStock.Text = "";
                     this.txtHarga.Text = "";
                     this.txtPajak.Text = "";
+
+                    if (this.label3.Visible == true) this.label3.Visible = false;
+
                 }
             }
             catch (Exception ex)
@@ -180,11 +180,6 @@ namespace HitungBelanja
                 }
                 this.txtPajak.SelectionStart = this.txtPajak.Text.Length;
             }
-        }
-
-        private void btnLogout_Click(object sender, EventArgs e)
-        {
-            this.Close();
         }
 
         private void txtJumlah_TextChanged(object sender, EventArgs e)
@@ -227,7 +222,7 @@ namespace HitungBelanja
         {
             this.Hide();
             FrmReceipt frm1 = new FrmReceipt();
-            frm1.Run(listOrder);
+            frm1.Run(listOrder, this.temp);
             this.Show();
         }
     }

@@ -40,10 +40,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Akun.cs" />
-    <Compile Include="AkunDAO.cs" />
     <Compile Include="Barang.cs" />
     <Compile Include="BarangDAO.cs" />
+    <Compile Include="DAO.cs" />
     <Compile Include="Order.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
