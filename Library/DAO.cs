@@ -22,32 +22,55 @@ namespace Library
         public void DeleteBarang(Barang barang)
         {
             Barang dataToDelete = null;
-            for (int i = 0; i < listBrg.Count; i++)
+
+            if (CheckItemExist(barang))
             {
-                dataToDelete = listBrg[i];
-                if (dataToDelete.Kode.Equals(barang.Kode))
+                for (int i = 0; i < listBrg.Count; i++)
                 {
-                    break;
+                    dataToDelete = listBrg[i];
+                    if (dataToDelete.Kode.Equals(barang.Kode))
+                    {
+                        break;
+                    }
                 }
+                if (dataToDelete != null) listBrg.Remove(dataToDelete);
             }
-            if (dataToDelete != null) listBrg.Remove(dataToDelete);
+            else
+            {
+                throw new ArgumentException("Data tersebut tidak ada");
+            }
         }
 
         public void EditBarang(Barang baru, Barang lama)
         {
-            for (int i = 0; i < listBrg.Count; i++)
+            if (baru.Jumlah <= 0) throw new ArgumentException();
+            else if (baru.Harga <= 0) throw new ArgumentException();
+            else if (baru.Pajak < 0 || baru.Pajak > 100) throw new ArgumentException();
+            else
             {
-                Barang data = listBrg[i];
-                if (data.Kode.Equals(lama.Kode))
+                for (int i = 0; i < listBrg.Count; i++)
                 {
-                    if (baru.Jumlah <= 0) throw new ArgumentException();
-                    else if (baru.Harga <= 0) throw new ArgumentException();
-                    else if (baru.Pajak < 0 || baru.Pajak > 100) throw new ArgumentException();
-                    else
-                    listBrg[i] = baru;
-                    break;
+                    Barang data = listBrg[i];
+                    if (data.Kode.Equals(lama.Kode))
+                    {
+                        listBrg[i] = baru;
+                        break;
+                    }
                 }
             }
+        }
+
+        private bool CheckItemExist(Barang brg)
+        {
+            if (listBrg?.Count > 0)
+            {
+                foreach (Barang data in listBrg)
+                {
+                    if (data.Kode.Equals(brg.Kode))
+                        return true;
+                }
+            }
+            return false;
         }
     }
 }
