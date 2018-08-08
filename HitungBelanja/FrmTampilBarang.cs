@@ -37,15 +37,16 @@ namespace HitungBelanja
 
             using (var dao = new BarangDAO(sqlString))
             {
-                if (dao.GetAllDataBarang(brg).Capacity > 0)
+                if (dao.GetAllDataBarang().Count >= 0)
                 {
                     this.dgvDataBarang.DataSource = null;
-                    this.dgvDataBarang.DataSource = dao.GetAllDataBarang(brg);
-                    this.dgvDataBarang.Columns[0].DataPropertyName = "kode";
-                    this.dgvDataBarang.Columns[1].DataPropertyName = "nama";
-                    this.dgvDataBarang.Columns[2].DataPropertyName = "jumlah";
-                    this.dgvDataBarang.Columns[3].DataPropertyName = "harga";
-                    this.dgvDataBarang.Columns[4].DataPropertyName = "Pajak";
+                    this.dgvDataBarang.DataSource = dao.GetAllDataBarang();
+                    this.dgvDataBarang.Columns[0].DataPropertyName = nameof(Barang.Kode);
+                    this.dgvDataBarang.Columns[1].DataPropertyName = nameof(Barang.Nama);
+                    this.dgvDataBarang.Columns[2].DataPropertyName = nameof(Barang.Jumlah);
+                    this.dgvDataBarang.Columns[3].DataPropertyName = nameof(Barang.Harga);
+                    this.dgvDataBarang.Columns[3].DefaultCellStyle.Format = "c";
+                    this.dgvDataBarang.Columns[4].DataPropertyName = nameof(Barang.Pajak);
                 }
             }
 
