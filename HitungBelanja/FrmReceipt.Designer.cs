@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.ListViewItem listViewItem2 = new System.Windows.Forms.ListViewItem("");
+            System.Windows.Forms.ListViewItem listViewItem1 = new System.Windows.Forms.ListViewItem("");
             this.listView1 = new System.Windows.Forms.ListView();
             this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader3 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
@@ -37,11 +37,8 @@
             this.columnHeader5 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.txtBayar = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
-            this.btnBayar = new System.Windows.Forms.Button();
+            this.btnOk = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // listView1
@@ -54,10 +51,10 @@
             this.columnHeader5});
             this.listView1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.listView1.GridLines = true;
-            listViewItem2.Tag = "12";
-            listViewItem2.UseItemStyleForSubItems = false;
+            listViewItem1.Tag = "12";
+            listViewItem1.UseItemStyleForSubItems = false;
             this.listView1.Items.AddRange(new System.Windows.Forms.ListViewItem[] {
-            listViewItem2});
+            listViewItem1});
             this.listView1.Location = new System.Drawing.Point(12, 75);
             this.listView1.Name = "listView1";
             this.listView1.Size = new System.Drawing.Size(560, 400);
@@ -109,26 +106,6 @@
             this.label2.Text = "{ TOTAL } ";
             this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(250, 542);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(74, 29);
-            this.label3.TabIndex = 1;
-            this.label3.Text = "Bayar";
-            // 
-            // txtBayar
-            // 
-            this.txtBayar.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtBayar.Location = new System.Drawing.Point(386, 535);
-            this.txtBayar.Multiline = true;
-            this.txtBayar.Name = "txtBayar";
-            this.txtBayar.Size = new System.Drawing.Size(158, 40);
-            this.txtBayar.TabIndex = 2;
-            this.txtBayar.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textAngka_KeyPress);
-            // 
             // label4
             // 
             this.label4.AutoSize = true;
@@ -139,37 +116,24 @@
             this.label4.TabIndex = 3;
             this.label4.Text = "MAKANAN-KU";
             // 
-            // label5
+            // btnOk
             // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(330, 541);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(50, 29);
-            this.label5.TabIndex = 1;
-            this.label5.Text = "Rp.";
-            // 
-            // btnBayar
-            // 
-            this.btnBayar.Location = new System.Drawing.Point(386, 597);
-            this.btnBayar.Name = "btnBayar";
-            this.btnBayar.Size = new System.Drawing.Size(158, 41);
-            this.btnBayar.TabIndex = 4;
-            this.btnBayar.Text = "Bayar";
-            this.btnBayar.UseVisualStyleBackColor = true;
-            this.btnBayar.Click += new System.EventHandler(this.btnBayar_Click);
+            this.btnOk.Location = new System.Drawing.Point(386, 552);
+            this.btnOk.Name = "btnOk";
+            this.btnOk.Size = new System.Drawing.Size(158, 41);
+            this.btnOk.TabIndex = 4;
+            this.btnOk.Text = "OK";
+            this.btnOk.UseVisualStyleBackColor = true;
+            this.btnOk.Click += new System.EventHandler(this.btnBayar_Click);
             // 
             // FrmReceipt
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(584, 641);
-            this.Controls.Add(this.btnBayar);
+            this.ClientSize = new System.Drawing.Size(584, 608);
+            this.Controls.Add(this.btnOk);
             this.Controls.Add(this.label4);
-            this.Controls.Add(this.txtBayar);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.label5);
-            this.Controls.Add(this.label3);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.listView1);
             this.MaximizeBox = false;
@@ -192,11 +156,8 @@
         private System.Windows.Forms.ColumnHeader columnHeader5;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox txtBayar;
         private System.Windows.Forms.ColumnHeader columnHeader1;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Button btnBayar;
+        private System.Windows.Forms.Button btnOk;
     }
 }

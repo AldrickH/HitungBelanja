@@ -44,7 +44,8 @@ namespace HitungBelanja
                     this.dgvDataBarang.Columns[0].DataPropertyName = "kode";
                     this.dgvDataBarang.Columns[1].DataPropertyName = "nama";
                     this.dgvDataBarang.Columns[2].DataPropertyName = "jumlah";
-                    this.dgvDataBarang.Columns[3].DataPropertyName = "harga";             
+                    this.dgvDataBarang.Columns[3].DataPropertyName = "harga";
+                    this.dgvDataBarang.Columns[4].DataPropertyName = "Pajak";
                 }
             }
 
@@ -57,7 +58,7 @@ namespace HitungBelanja
                 {
                     this.dgvDataOrder.Rows.Add(new string[] {
                     ord.DataBarang.Kode, ord.DataBarang.Nama, ord.DataBarang.Harga.ToString("c"),
-                    ord.JumlahBeli.ToString(), ord.Pajak, ord.SubTotal.ToString("c")});
+                    ord.JumlahBeli.ToString(), $"{ord.Pajak.ToString()} %", ord.SubTotal.ToString("c")});
                 }
            } 
 
@@ -65,7 +66,6 @@ namespace HitungBelanja
         }
         private void dgvDataBarang_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
-            MessageBox.Show(this.dgvDataBarang.SelectedRows.Count.ToString());
             if (this.dgvDataBarang.SelectedRows.Count > 0)
             {
                 FrmTambahBarang frm = new FrmTambahBarang();
@@ -76,10 +76,11 @@ namespace HitungBelanja
 
         private void dgvDataBarang_Resize(object sender, EventArgs e)
         {
-            this.dgvDataBarang.Columns[0].Width = 25 * this.dgvDataBarang.Width / 100;
-            this.dgvDataBarang.Columns[1].Width = 25 * this.dgvDataBarang.Width / 100;
-            this.dgvDataBarang.Columns[2].Width = 25 * this.dgvDataBarang.Width / 100;
-            this.dgvDataBarang.Columns[3].Width = 25 * this.dgvDataBarang.Width / 100;
+            this.dgvDataBarang.Columns[0].Width = 20 * this.dgvDataBarang.Width / 100;
+            this.dgvDataBarang.Columns[1].Width = 20 * this.dgvDataBarang.Width / 100;
+            this.dgvDataBarang.Columns[2].Width = 20 * this.dgvDataBarang.Width / 100;
+            this.dgvDataBarang.Columns[3].Width = 20 * this.dgvDataBarang.Width / 100;
+            this.dgvDataBarang.Columns[4].Width = 20 * this.dgvDataBarang.Width / 100;
         }
 
         private void dgvDataOrder_Resize(object sender, EventArgs e)
@@ -95,12 +96,13 @@ namespace HitungBelanja
         private void txtKode_Leave(object sender, EventArgs e)
         {
             using (var dao = new BarangDAO(sqlString))
-            { 
-                if ((brg = dao.GetDataBarangByKode(this.txtKode.Text)) != null )
+            {
+                if ((brg = dao.GetDataBarangByKode(this.txtKode.Text)) != null)
                 {
                     this.txtNama.Text = brg.Nama;
                     this.txtHarga.Text = brg.Harga.ToString();
                     this.txtStock.Text = brg.Jumlah.ToString();
+                    this.txtPajak.Text = brg.Pajak.ToString();
                 }
                 else
                 {
@@ -142,7 +144,7 @@ namespace HitungBelanja
                         DataBarang = brg,
                         JumlahBeli = int.Parse(this.txtJumlah.Text),
                         SubTotal = subTotal,
-                        Pajak = $"{this.txtPajak.Text} %"
+                        Pajak = int.Parse(this.txtPajak.Text)
                     });
 
                     temp += subTotal;
@@ -163,23 +165,6 @@ namespace HitungBelanja
                 MessageBox.Show(ex.Message, this.Text, MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
 
-        }
-
-        private void txtPajak_TextChanged(object sender, EventArgs e)
-        {
-            if (this.txtPajak.Text != "")
-            {
-                decimal pjk = Convert.ToDecimal(this.txtPajak.Text);
-                if (pjk > 100)
-                {
-                    this.txtPajak.Text = "100";
-                }
-                else
-                {
-                    this.txtPajak.Text = pjk.ToString();
-                }
-                this.txtPajak.SelectionStart = this.txtPajak.Text.Length;
-            }
         }
 
         private void txtJumlah_TextChanged(object sender, EventArgs e)

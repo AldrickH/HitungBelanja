@@ -39,81 +39,92 @@
             this.btnSimpan = new System.Windows.Forms.Button();
             this.btnBatal = new System.Windows.Forms.Button();
             this.btnHapus = new System.Windows.Forms.Button();
+            this.lblPajak = new System.Windows.Forms.Label();
+            this.txtPajak = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // lblKode
             // 
             this.lblKode.AutoSize = true;
-            this.lblKode.Location = new System.Drawing.Point(134, 109);
+            this.lblKode.Location = new System.Drawing.Point(89, 45);
+            this.lblKode.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblKode.Name = "lblKode";
-            this.lblKode.Size = new System.Drawing.Size(62, 25);
+            this.lblKode.Size = new System.Drawing.Size(41, 17);
             this.lblKode.TabIndex = 0;
             this.lblKode.Text = "Kode";
             // 
             // lblNama
             // 
             this.lblNama.AutoSize = true;
-            this.lblNama.Location = new System.Drawing.Point(134, 191);
+            this.lblNama.Location = new System.Drawing.Point(89, 93);
+            this.lblNama.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblNama.Name = "lblNama";
-            this.lblNama.Size = new System.Drawing.Size(68, 25);
+            this.lblNama.Size = new System.Drawing.Size(45, 17);
             this.lblNama.TabIndex = 1;
             this.lblNama.Text = "Nama";
             // 
             // lblJumlah
             // 
             this.lblJumlah.AutoSize = true;
-            this.lblJumlah.Location = new System.Drawing.Point(134, 269);
+            this.lblJumlah.Location = new System.Drawing.Point(89, 145);
+            this.lblJumlah.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblJumlah.Name = "lblJumlah";
-            this.lblJumlah.Size = new System.Drawing.Size(81, 25);
+            this.lblJumlah.Size = new System.Drawing.Size(53, 17);
             this.lblJumlah.TabIndex = 2;
             this.lblJumlah.Text = "Jumlah";
             // 
             // lblHarga
             // 
             this.lblHarga.AutoSize = true;
-            this.lblHarga.Location = new System.Drawing.Point(134, 353);
+            this.lblHarga.Location = new System.Drawing.Point(91, 198);
+            this.lblHarga.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblHarga.Name = "lblHarga";
-            this.lblHarga.Size = new System.Drawing.Size(70, 25);
+            this.lblHarga.Size = new System.Drawing.Size(47, 17);
             this.lblHarga.TabIndex = 3;
             this.lblHarga.Text = "Harga";
             // 
             // txtKodeBarang
             // 
-            this.txtKodeBarang.Location = new System.Drawing.Point(322, 109);
+            this.txtKodeBarang.Location = new System.Drawing.Point(215, 45);
+            this.txtKodeBarang.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.txtKodeBarang.Name = "txtKodeBarang";
-            this.txtKodeBarang.Size = new System.Drawing.Size(462, 31);
+            this.txtKodeBarang.Size = new System.Drawing.Size(309, 22);
             this.txtKodeBarang.TabIndex = 4;
             this.txtKodeBarang.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textAngkaHuruf_KeyPress);
             // 
             // txtNamaBarang
             // 
-            this.txtNamaBarang.Location = new System.Drawing.Point(322, 191);
+            this.txtNamaBarang.Location = new System.Drawing.Point(215, 93);
+            this.txtNamaBarang.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.txtNamaBarang.Name = "txtNamaBarang";
-            this.txtNamaBarang.Size = new System.Drawing.Size(462, 31);
+            this.txtNamaBarang.Size = new System.Drawing.Size(309, 22);
             this.txtNamaBarang.TabIndex = 5;
             // 
             // txtJumlahBarang
             // 
-            this.txtJumlahBarang.Location = new System.Drawing.Point(322, 269);
+            this.txtJumlahBarang.Location = new System.Drawing.Point(215, 145);
+            this.txtJumlahBarang.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.txtJumlahBarang.Name = "txtJumlahBarang";
-            this.txtJumlahBarang.Size = new System.Drawing.Size(462, 31);
+            this.txtJumlahBarang.Size = new System.Drawing.Size(309, 22);
             this.txtJumlahBarang.TabIndex = 6;
             this.txtJumlahBarang.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textAngka_KeyPress);
             // 
             // txtHargaBarang
             // 
-            this.txtHargaBarang.Location = new System.Drawing.Point(319, 347);
+            this.txtHargaBarang.Location = new System.Drawing.Point(215, 194);
+            this.txtHargaBarang.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.txtHargaBarang.Name = "txtHargaBarang";
-            this.txtHargaBarang.Size = new System.Drawing.Size(462, 31);
+            this.txtHargaBarang.Size = new System.Drawing.Size(309, 22);
             this.txtHargaBarang.TabIndex = 7;
             this.txtHargaBarang.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textAngka_KeyPress);
             // 
             // btnSimpan
             // 
             this.btnSimpan.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnSimpan.Location = new System.Drawing.Point(476, 448);
+            this.btnSimpan.Location = new System.Drawing.Point(317, 287);
+            this.btnSimpan.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnSimpan.Name = "btnSimpan";
-            this.btnSimpan.Size = new System.Drawing.Size(135, 45);
+            this.btnSimpan.Size = new System.Drawing.Size(90, 29);
             this.btnSimpan.TabIndex = 8;
             this.btnSimpan.Text = "Simpan";
             this.btnSimpan.UseVisualStyleBackColor = true;
@@ -122,9 +133,10 @@
             // btnBatal
             // 
             this.btnBatal.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnBatal.Location = new System.Drawing.Point(646, 448);
+            this.btnBatal.Location = new System.Drawing.Point(431, 287);
+            this.btnBatal.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnBatal.Name = "btnBatal";
-            this.btnBatal.Size = new System.Drawing.Size(135, 45);
+            this.btnBatal.Size = new System.Drawing.Size(90, 29);
             this.btnBatal.TabIndex = 9;
             this.btnBatal.Text = "Batal";
             this.btnBatal.UseVisualStyleBackColor = true;
@@ -134,31 +146,56 @@
             this.btnHapus.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btnHapus.BackColor = System.Drawing.Color.IndianRed;
             this.btnHapus.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.btnHapus.Location = new System.Drawing.Point(312, 448);
+            this.btnHapus.Location = new System.Drawing.Point(208, 287);
+            this.btnHapus.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnHapus.Name = "btnHapus";
-            this.btnHapus.Size = new System.Drawing.Size(135, 45);
+            this.btnHapus.Size = new System.Drawing.Size(90, 29);
             this.btnHapus.TabIndex = 10;
             this.btnHapus.Text = "Hapus";
             this.btnHapus.UseVisualStyleBackColor = false;
             this.btnHapus.Click += new System.EventHandler(this.btnHapus_Click);
             // 
+            // lblPajak
+            // 
+            this.lblPajak.AutoSize = true;
+            this.lblPajak.Location = new System.Drawing.Point(91, 245);
+            this.lblPajak.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblPajak.Name = "lblPajak";
+            this.lblPajak.Size = new System.Drawing.Size(43, 17);
+            this.lblPajak.TabIndex = 3;
+            this.lblPajak.Text = "Pajak";
+            // 
+            // txtPajak
+            // 
+            this.txtPajak.Location = new System.Drawing.Point(215, 241);
+            this.txtPajak.Margin = new System.Windows.Forms.Padding(2);
+            this.txtPajak.MaxLength = 5;
+            this.txtPajak.Name = "txtPajak";
+            this.txtPajak.Size = new System.Drawing.Size(309, 22);
+            this.txtPajak.TabIndex = 7;
+            this.txtPajak.TextChanged += new System.EventHandler(this.txtPajak_TextChanged);
+            this.txtPajak.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textAngka_KeyPress);
+            // 
             // FrmTambahBarang
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(932, 588);
+            this.ClientSize = new System.Drawing.Size(621, 376);
             this.Controls.Add(this.btnHapus);
             this.Controls.Add(this.btnBatal);
             this.Controls.Add(this.btnSimpan);
+            this.Controls.Add(this.txtPajak);
             this.Controls.Add(this.txtHargaBarang);
             this.Controls.Add(this.txtJumlahBarang);
             this.Controls.Add(this.txtNamaBarang);
+            this.Controls.Add(this.lblPajak);
             this.Controls.Add(this.txtKodeBarang);
             this.Controls.Add(this.lblHarga);
             this.Controls.Add(this.lblJumlah);
             this.Controls.Add(this.lblNama);
             this.Controls.Add(this.lblKode);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "FrmTambahBarang";
@@ -183,5 +220,7 @@
         private System.Windows.Forms.Button btnSimpan;
         private System.Windows.Forms.Button btnBatal;
         private System.Windows.Forms.Button btnHapus;
+        private System.Windows.Forms.Label lblPajak;
+        private System.Windows.Forms.TextBox txtPajak;
     }
 }

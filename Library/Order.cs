@@ -11,6 +11,6 @@ namespace Library
         public Barang DataBarang { get; set; }
         public int JumlahBeli { get; set; }
         public decimal SubTotal { get; set; }
-        public string Pajak { get; set; }
+        public int Pajak { get; set; }
     }
 }
