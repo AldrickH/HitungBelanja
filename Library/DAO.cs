@@ -10,6 +10,8 @@ namespace Library
     {
         public List<Barang> listBrg = new List<Barang>();
 
+
+        // method untuk menanmbahkan barang baru
         public void AddBarang(Barang barang)
         {
             if (barang.Harga <= 0) throw new ArgumentException();
@@ -19,6 +21,7 @@ namespace Library
                 listBrg.Add(barang);
         }
 
+        // method untuk delete barang
         public void DeleteBarang(Barang barang)
         {
             Barang dataToDelete = null;
@@ -41,25 +44,29 @@ namespace Library
             }
         }
 
+        // method untuk edit barang
         public void EditBarang(Barang baru, Barang lama)
         {
-            if (baru.Jumlah <= 0) throw new ArgumentException();
-            else if (baru.Harga <= 0) throw new ArgumentException();
-            else if (baru.Pajak < 0 || baru.Pajak > 100) throw new ArgumentException();
-            else
-            {
-                for (int i = 0; i < listBrg.Count; i++)
+            if (CheckItemExist(lama)) {
+                if (baru.Jumlah <= 0) throw new ArgumentException();
+                else if (baru.Harga <= 0) throw new ArgumentException();
+                else if (baru.Pajak < 0 || baru.Pajak > 100) throw new ArgumentException();
+                else
                 {
-                    Barang data = listBrg[i];
-                    if (data.Kode.Equals(lama.Kode))
+                    for (int i = 0; i < listBrg.Count; i++)
                     {
-                        listBrg[i] = baru;
-                        break;
+                        Barang data = listBrg[i];
+                        if (data.Kode.Equals(lama.Kode))
+                        {
+                            listBrg[i] = baru;
+                            break;
+                        }
                     }
                 }
             }
         }
 
+        // method untuk cek apakah barang tersebut adas
         private bool CheckItemExist(Barang brg)
         {
             if (listBrg?.Count > 0)
