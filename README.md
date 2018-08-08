@@ -7,6 +7,10 @@ Nama Anggota :
 3. Griselda Guinarto  (03082170006)
 ```
 
+NB : 
+1. Default database location = Data Source = (localdb)\MSSQLLocalDB; Initial Catalog = HitungBelanja; Integrated Security = True.
+2. Default sudah 3 data barang.
+
 ### User Story
 
 1. User dapat melihat tampilan awal untuk melakukan transaksi.
