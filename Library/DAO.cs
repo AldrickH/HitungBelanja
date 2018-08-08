@@ -12,7 +12,11 @@ namespace Library
 
         public void AddBarang(Barang barang)
         {
-            listBrg.Add(barang);
+            if (barang.Harga <= 0) throw new ArgumentException();
+            else if (barang.Jumlah <= 0) throw new ArgumentException();
+            else if (barang.Pajak < 0 || barang.Pajak > 100) throw new ArgumentException();
+            else
+                listBrg.Add(barang);
         }
 
         public void DeleteBarang(Barang barang)
@@ -21,7 +25,7 @@ namespace Library
             for (int i = 0; i < listBrg.Count; i++)
             {
                 dataToDelete = listBrg[i];
-                if (dataToDelete.Nama.Equals(barang.Nama))
+                if (dataToDelete.Kode.Equals(barang.Kode))
                 {
                     break;
                 }
@@ -34,8 +38,12 @@ namespace Library
             for (int i = 0; i < listBrg.Count; i++)
             {
                 Barang data = listBrg[i];
-                if (data.Nama.Equals(lama.Nama))
+                if (data.Kode.Equals(lama.Kode))
                 {
+                    if (baru.Jumlah <= 0) throw new ArgumentException();
+                    else if (baru.Harga <= 0) throw new ArgumentException();
+                    else if (baru.Pajak < 0 || baru.Pajak > 100) throw new ArgumentException();
+                    else
                     listBrg[i] = baru;
                     break;
                 }

@@ -12,5 +12,6 @@ namespace Library
         public string Nama { get; set; }
         public int Jumlah { get; set; }
         public decimal Harga { get; set; }
+        public decimal Pajak { get; set; }
     }
 }

@@ -23,9 +23,9 @@ namespace Library.Tests
         {
             List<Barang> listBarang = new List<Barang>
             {
-                new Barang { Nama = "Aldrick", Kode = "0001", Jumlah = 100, Harga = 10000 },
-                new Barang { Nama = "Griselda", Kode = "0002", Jumlah = 10, Harga = 20000 },
-                new Barang { Nama = "Aldrickx", Kode = "0003", Jumlah = 50, Harga = 40000 }
+                new Barang { Nama = "Caramel", Kode = "0001", Jumlah = 100, Harga = 10000, Pajak = 10 },
+                new Barang { Nama = "Coffee", Kode = "0002", Jumlah = 10, Harga = 20000, Pajak = 10 },
+                new Barang { Nama = "Tea", Kode = "0003", Jumlah = 50, Harga = 40000, Pajak = 10 }
             };
 
             foreach (Barang brg in listBarang)
@@ -41,9 +41,9 @@ namespace Library.Tests
         {
             List<Barang> listBarang = new List<Barang>
             {
-                new Barang { Nama = "Aldrick", Kode = "0001", Jumlah = 100, Harga = 10000 },
-                new Barang { Nama = "Griselda", Kode = "0002", Jumlah = 10, Harga = 20000 },
-                new Barang { Nama = "Aldrickx", Kode = "0003", Jumlah = 50, Harga = 40000 }
+                new Barang { Nama = "Caramel", Kode = "0001", Jumlah = 100, Harga = 10000, Pajak = 10 },
+                new Barang { Nama = "Coffee", Kode = "0002", Jumlah = 10, Harga = 20000, Pajak = 10 },
+                new Barang { Nama = "Tea", Kode = "0003", Jumlah = 50, Harga = 40000, Pajak = 10 }
             };
 
             foreach (Barang brg in listBarang)
@@ -51,7 +51,7 @@ namespace Library.Tests
                 dao.listBrg.Add(brg);
             }
 
-            dao.DeleteBarang(new Barang { Nama = "Aldrickx", Kode = "0003", Jumlah = 50, Harga = 40000 });
+            dao.DeleteBarang(new Barang { Nama = "Caramel", Kode = "0003", Jumlah = 50, Harga = 40000, Pajak = 10 });
 
             Assert.AreEqual(listBarang.Count - 1, dao.listBrg.Count);
         }
@@ -61,9 +61,9 @@ namespace Library.Tests
         {
             List<Barang> listBarang = new List<Barang>
             {
-                new Barang { Nama = "Aldrick", Kode = "0001", Jumlah = 100, Harga = 10000 },
-                new Barang { Nama = "Griselda", Kode = "0002", Jumlah = 10, Harga = 20000 },
-                new Barang { Nama = "Aldrickx", Kode = "0003", Jumlah = 50, Harga = 40000 }
+                new Barang { Nama = "Caramel", Kode = "0001", Jumlah = 100, Harga = 10000, Pajak = 10 },
+                new Barang { Nama = "Coffee", Kode = "0002", Jumlah = 10, Harga = 20000, Pajak = 10 },
+                new Barang { Nama = "Tea", Kode = "0003", Jumlah = 50, Harga = 40000, Pajak = 10 }
             };
 
             foreach (Barang brg in listBarang)
@@ -71,7 +71,47 @@ namespace Library.Tests
                 dao.listBrg.Add(brg);
             }
 
-            dao.EditBarang(new Barang { Nama = "Griseldaaaa", Kode = "0003", Jumlah = 50, Harga = 40000 }, new Barang { Nama = "Aldrickx", Kode = "0003", Jumlah = 50, Harga = 40000 });
+            dao.EditBarang(new Barang { Nama = "Tea A", Kode = "0003", Jumlah = 50, Harga = 40000, Pajak = 10 }, new Barang { Nama = "Tea", Kode = "0003", Jumlah = 50, Harga = 40000, Pajak = 10 });
+
+            CollectionAssert.AreNotEqual(listBarang, dao.listBrg);
+        }
+
+        [TestMethod()]
+        [ExpectedException(typeof(ArgumentException))]
+        public void AddTest_Invalid()
+        {
+            List<Barang> listBarang = new List<Barang>
+            {
+                new Barang { Nama = "Caramel", Kode = "0001", Jumlah = 100, Harga = -10000, Pajak = 0 },
+                new Barang { Nama = "Coffee", Kode = "0002", Jumlah = 10, Harga = 20000, Pajak = 150 },
+                new Barang { Nama = "Tea", Kode = "0003", Jumlah = -50, Harga = 40000, Pajak = -15 }
+            };
+
+            foreach (Barang brg in listBarang)
+            {
+                dao.AddBarang(brg);
+            }
+
+            Assert.AreEqual(listBarang.Count, dao.listBrg.Count);
+        }
+
+        [TestMethod()]
+        [ExpectedException(typeof(ArgumentException))]
+        public void EditTest_Invalid()
+        {
+            List<Barang> listBarang = new List<Barang>
+            {
+                new Barang { Nama = "Caramel", Kode = "0001", Jumlah = 100, Harga = 10000, Pajak = 10 },
+                new Barang { Nama = "Coffee", Kode = "0002", Jumlah = 10, Harga = 20000, Pajak = 10 },
+                new Barang { Nama = "Tea", Kode = "0003", Jumlah = 50, Harga = 40000, Pajak = 10 }
+            };
+
+            foreach (Barang brg in listBarang)
+            {
+                dao.listBrg.Add(brg);
+            }
+
+            dao.EditBarang(new Barang { Nama = "Tea A", Kode = "0003", Jumlah = -50, Harga = -40000, Pajak = -15 }, new Barang { Nama = "Tea", Kode = "0003", Jumlah = 50, Harga = 40000, Pajak = 10 });
 
             CollectionAssert.AreNotEqual(listBarang, dao.listBrg);
         }
