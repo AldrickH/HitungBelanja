@@ -43,6 +43,23 @@ namespace HitungBelanja
             }
         }
 
+        private void txtPajak_TextChanged(object sender, EventArgs e)
+        {
+            if (this.txtPajak.Text != "")
+            {
+                decimal pjk = Convert.ToDecimal(this.txtPajak.Text);
+                if (pjk > 100)
+                {
+                    this.txtPajak.Text = "100";
+                }
+                else
+                {
+                    this.txtPajak.Text = pjk.ToString();
+                }
+                this.txtPajak.SelectionStart = this.txtPajak.Text.Length;
+            }
+        }
+
         private void btnSimpan_Click(object sender, EventArgs e)
         {
             if (this.txtKodeBarang.Text.Trim() == "")
@@ -77,7 +94,8 @@ namespace HitungBelanja
                             Kode = this.txtKodeBarang.Text.Trim(),
                             Nama = this.txtNamaBarang.Text.Trim(),
                             Jumlah = int.Parse(this.txtJumlahBarang.Text.Trim()),
-                            Harga = Convert.ToDecimal(this.txtHargaBarang.Text.Trim())
+                            Harga = Convert.ToDecimal(this.txtHargaBarang.Text.Trim()),
+                           Pajak = int.Parse(this.txtPajak.Text.Trim())
                         };
 
                         if (brg != null)

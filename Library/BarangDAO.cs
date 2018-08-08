@@ -30,13 +30,14 @@ namespace Library
             try
             {
                 _trans = _conn.BeginTransaction();
-                using (SqlCommand cmd = new SqlCommand(@"insert into barang values (@kode, @nama, @jumlah, @harga)", _conn, _trans))
+                using (SqlCommand cmd = new SqlCommand(@"insert into barang values (@kode, @nama, @jumlah, @harga, @pajak)", _conn, _trans))
                 {
                     cmd.Parameters.Clear();
                     cmd.Parameters.AddWithValue("@kode", barang.Kode);
                     cmd.Parameters.AddWithValue("@nama", barang.Nama);
                     cmd.Parameters.AddWithValue("@jumlah", barang.Jumlah);
                     cmd.Parameters.AddWithValue("@harga", barang.Harga);
+                    cmd.Parameters.AddWithValue("@pajak", barang.Pajak);
                     cmd.ExecuteNonQuery();
                 }
                 _trans.Commit();
@@ -61,12 +62,13 @@ namespace Library
                 {
                     cmd.Connection = _conn;
                     cmd.Transaction = _trans;
-                    cmd.CommandText = @"update barang set nama = @nama, jumlah = @jumlah , harga = @harga where kode = @kode";
+                    cmd.CommandText = @"update barang set nama = @nama, jumlah = @jumlah , harga = @harga, pajak = @pajak where kode = @kode";
                     cmd.Parameters.Clear();
                     cmd.Parameters.AddWithValue("@kode", barang.Kode);
                     cmd.Parameters.AddWithValue("@nama", barang.Nama);
                     cmd.Parameters.AddWithValue("@jumlah", barang.Jumlah);
                     cmd.Parameters.AddWithValue("@harga", barang.Harga);
+                    cmd.Parameters.AddWithValue("@pajak", barang.Pajak);
                     cmd.ExecuteNonQuery();
                 }
                 _trans.Commit();
@@ -119,7 +121,8 @@ namespace Library
                                     Kode = reader["Kode"].ToString(),
                                     Nama = reader["Nama"].ToString(),
                                     Harga = Convert.ToDecimal(reader["Harga"]),
-                                    Jumlah = int.Parse(reader["Jumlah"].ToString())
+                                    Jumlah = int.Parse(reader["Jumlah"].ToString()),
+                                    Pajak = int.Parse(reader["Pajak"].ToString())
                                 });
                             }
                         }
@@ -154,7 +157,8 @@ namespace Library
                                     Kode = reader["Kode"].ToString(),
                                     Nama = reader["Nama"].ToString(),
                                     Harga = Convert.ToDecimal(reader["Harga"]),
-                                    Jumlah = int.Parse(reader["Jumlah"].ToString())
+                                    Jumlah = int.Parse(reader["Jumlah"].ToString()),
+                                    Pajak = int.Parse(reader["Pajak"].ToString())
                                 };
                             }
                         }
