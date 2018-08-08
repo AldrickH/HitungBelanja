@@ -9,7 +9,7 @@ Nama Anggota :
 
 ### User Story
 
-1. User dapat melihat tampilan awal untuk melakukan transaksi
+1. User dapat melihat tampilan awal untuk melakukan transaksi.
   1.1 User dapat menginput kode barang yang diingin untuk melakukan transaksi
   1.2 Validasi inputan user terhadap barang belanja dimana hanya barang yang terdaftar yang dapat dimasukkan ke transaksi
   1.3 User dapat memasukkan jumlah barang yang akan di transaksi
